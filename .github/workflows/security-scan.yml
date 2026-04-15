@@ -23,10 +23,10 @@ jobs:
 
       - name: Install PHPCS and WordPress standards
         run: |
-          composer global require squizlabs/php_codesniffer
-          composer global require wp-coding-standards/wpcs
-          composer global require phpcompatibility/phpcompatibility-wp
-          composer global require dealerdirect/phpcodesniffer-composer-installer
+          composer global require "squizlabs/php_codesniffer:^3.13"
+          composer global require "wp-coding-standards/wpcs:^3.1"
+          composer global require "phpcompatibility/phpcompatibility-wp:^2.1"
+          composer global require "dealerdirect/phpcodesniffer-composer-installer:^1.0"
 
       - name: Verify coding standards are registered
         run: |
@@ -112,8 +112,10 @@ jobs:
           WORDFENCE_API_TOKEN: ${{ secrets.WORDFENCE_API_TOKEN }}
           MANIFEST_PATH: plugins.yml
         run: |
-          exit_code=0
-          python .github/scripts/check-versions.py || exit_code=$?
+          set +e
+          python .github/scripts/check-versions.py
+          exit_code=$?
+          set -e
 
           if [ $exit_code -eq 1 ]; then
             echo "::error::Known vulnerabilities detected — see log above"
@@ -122,3 +124,4 @@ jobs:
             echo "::warning::Some plugins/themes are outdated — see log above"
             exit 0
           fi
+          exit 0
