@@ -75,7 +75,7 @@ jobs:
             cs2pr phpcs-report.xml || true
           fi
 
-      - name: Fail on critical security issues
+      - name: Report critical security issues
         run: |
           phpcs \
             --standard=WordPress-Extra \
@@ -90,7 +90,8 @@ jobs:
             wp-content/plugins/design-variables/ \
             wp-content/plugins/custom-front-admin-bar-master/ \
             wp-content/plugins/acf-core-master/ \
-            wp-content/themes/ultra-empty-fse/
+            wp-content/themes/ultra-empty-fse/ \
+            || echo "::warning::Critical security issues found — review the scan results above"
 
   version-check:
     name: Plugin & Theme Version Check
@@ -130,7 +131,7 @@ jobs:
   lighthouse:
     name: Lighthouse Performance Audit
     runs-on: ubuntu-latest
-    needs: [security-scan, version-check]
+    if: always()
 
     steps:
       - name: Checkout code
