@@ -36,7 +36,7 @@ jobs:
       - name: Run WordPress security scan on custom code
         run: |
           phpcs \
-            --standard=WordPress-Security \
+            --standard=WordPress-Extra \
             --extensions=php \
             --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
             --report=checkstyle \
@@ -54,7 +54,7 @@ jobs:
       - name: Display human-readable results
         run: |
           phpcs \
-            --standard=WordPress-Security \
+            --standard=WordPress-Extra \
             --extensions=php \
             --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
             --report=summary \
@@ -78,7 +78,7 @@ jobs:
       - name: Fail on critical security issues
         run: |
           phpcs \
-            --standard=WordPress-Security \
+            --standard=WordPress-Extra \
             --extensions=php \
             --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
             --error-severity=5 \
