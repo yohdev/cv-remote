@@ -126,3 +126,48 @@ jobs:
             exit 0
           fi
           exit 0
+
+  lighthouse:
+    name: Lighthouse Performance Audit
+    runs-on: ubuntu-latest
+    needs: [security-scan, version-check]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Run Lighthouse audit
+        env:
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+          LIGHTHOUSE_CONFIG: lighthouse-pages.yml
+          LIGHTHOUSE_OUTPUT: lighthouse-results.json
+        run: |
+          set +e
+          python .github/scripts/lighthouse-audit.py
+          exit_code=$?
+          set -e
+
+          if [ $exit_code -eq 1 ]; then
+            echo "::error::Lighthouse audit failed — see log above"
+            exit 1
+          elif [ $exit_code -eq 2 ]; then
+            echo "::warning::Some pages are below score thresholds — see log above"
+            exit 0
+          fi
+          exit 0
+
+      - name: Upload results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results
+          path: lighthouse-results.json
+          retention-days: 90
