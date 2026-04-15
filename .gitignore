@@ -1,11 +1,56 @@
+# ===========================================
+# WordPress Core (managed by Studio, not us)
+# ===========================================
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+/available-site-translations.json
+
+# Keep wp-config.php tracked (has site-specific salts and settings)
+!wp-config.php
+
+# ===========================================
+# wp-content: Only track custom code
+# ===========================================
+
+# Ignore everything in wp-content by default
+wp-content/*
+
+# Then whitelist our custom plugins
+!wp-content/plugins/
+wp-content/plugins/*
+!wp-content/plugins/custom-functions/
+!wp-content/plugins/custom-scripts/
+!wp-content/plugins/custom-styles/
+!wp-content/plugins/design-variables/
+!wp-content/plugins/custom-front-admin-bar-master/
+!wp-content/plugins/acf-core-master/
+
+# Whitelist our custom theme
+!wp-content/themes/
+wp-content/themes/*
+!wp-content/themes/ultra-empty-fse/
+
+# ===========================================
+# Never track these
+# ===========================================
+
 # Uploads (media files — too large for git)
 wp-content/uploads/
 
-# Database files
+# Database
 *.sql
 *.sqlite
+wp-content/database/
 
-# WordPress core debug log
+# Studio SQLite integration (managed by Studio)
+wp-content/mu-plugins/
+
+# Debug logs
 wp-content/debug.log
 
 # OS files
@@ -16,10 +61,14 @@ Thumbs.db
 .env
 wp-config-local.php
 
-# Node / build artifacts
+# Dependencies
 node_modules/
 vendor/
 
-# Studio-specific
-wp-content/database/
-wp-content/mu-plugins/sqlite-database-integration/
+# Upgrade artifacts
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+
+# Cache
+wp-content/advanced-cache.php
+wp-content/cache/
