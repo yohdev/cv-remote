@@ -1,0 +1,59 @@
+# WordPress Plugin & Theme Version Manifest
+# ------------------------------------------
+# Update this file whenever you update a plugin or theme.
+# The CI vulnerability scan reads these versions and checks them
+# against the Wordfence Intelligence vulnerability database.
+#
+# Only third-party (non-custom) plugins and themes need to be listed.
+# Custom plugins (custom-functions, custom-styles, etc.) are covered
+# by the PHPCS security scan instead.
+
+plugins:
+  advanced-custom-fields-pro:
+    name: "Advanced Custom Fields PRO"
+    version: "6.7.1"
+
+  akismet:
+    name: "Akismet Anti-spam"
+    version: "5.6"
+
+  gravityforms:
+    name: "Gravity Forms"
+    version: "2.9.31"
+
+  gravityformsmailgun:
+    name: "Gravity Forms Mailgun Add-On"
+    version: "1.4.0"
+
+  gravitysmtp:
+    name: "Gravity SMTP"
+    version: "2.1.5"
+
+  integration-for-gravity-forms-and-pipedrive:
+    name: "Integration for Gravity Forms and Pipedrive"
+    version: "1.2.0"
+
+  safe-svg:
+    name: "Safe SVG"
+    version: "2.4.0"
+
+  wordpress-importer:
+    name: "WordPress Importer"
+    version: "0.9.5"
+
+  wordpress-seo:
+    name: "Yoast SEO"
+    version: "27.3"
+
+  wp-migrate-db:
+    name: "WP Migrate Lite"
+    version: "2.7.7"
+
+  wpe-site-migration:
+    name: "WP Engine Site Migration"
+    version: "1.7.1"
+
+themes:
+  twentytwentyfive:
+    name: "Twenty Twenty-Five"
+    version: "1.4"

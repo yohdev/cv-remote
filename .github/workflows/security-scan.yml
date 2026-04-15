@@ -1,0 +1,124 @@
+name: WordPress Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-scan:
+    name: PHPCS Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: cs2pr, composer
+
+      - name: Install PHPCS and WordPress standards
+        run: |
+          composer global require squizlabs/php_codesniffer
+          composer global require wp-coding-standards/wpcs
+          composer global require phpcompatibility/phpcompatibility-wp
+          composer global require dealerdirect/phpcodesniffer-composer-installer
+
+      - name: Verify coding standards are registered
+        run: |
+          phpcs -i
+
+      - name: Run WordPress security scan on custom code
+        run: |
+          phpcs \
+            --standard=WordPress-Security \
+            --extensions=php \
+            --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
+            --report=checkstyle \
+            --report-file=phpcs-report.xml \
+            --severity=1 \
+            wp-content/plugins/custom-functions/ \
+            wp-content/plugins/custom-scripts/ \
+            wp-content/plugins/custom-styles/ \
+            wp-content/plugins/design-variables/ \
+            wp-content/plugins/custom-front-admin-bar-master/ \
+            wp-content/plugins/acf-core-master/ \
+            wp-content/themes/ultra-empty-fse/ \
+            || true
+
+      - name: Display human-readable results
+        run: |
+          phpcs \
+            --standard=WordPress-Security \
+            --extensions=php \
+            --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
+            --report=summary \
+            --severity=1 \
+            wp-content/plugins/custom-functions/ \
+            wp-content/plugins/custom-scripts/ \
+            wp-content/plugins/custom-styles/ \
+            wp-content/plugins/design-variables/ \
+            wp-content/plugins/custom-front-admin-bar-master/ \
+            wp-content/plugins/acf-core-master/ \
+            wp-content/themes/ultra-empty-fse/ \
+            || true
+
+      - name: Annotate PR with inline comments
+        if: always()
+        run: |
+          if [ -f phpcs-report.xml ]; then
+            cs2pr phpcs-report.xml || true
+          fi
+
+      - name: Fail on critical security issues
+        run: |
+          phpcs \
+            --standard=WordPress-Security \
+            --extensions=php \
+            --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
+            --error-severity=5 \
+            --warning-severity=0 \
+            --report=summary \
+            wp-content/plugins/custom-functions/ \
+            wp-content/plugins/custom-scripts/ \
+            wp-content/plugins/custom-styles/ \
+            wp-content/plugins/design-variables/ \
+            wp-content/plugins/custom-front-admin-bar-master/ \
+            wp-content/plugins/acf-core-master/ \
+            wp-content/themes/ultra-empty-fse/
+
+  version-check:
+    name: Plugin & Theme Version Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Run version & vulnerability check
+        env:
+          WORDFENCE_API_TOKEN: ${{ secrets.WORDFENCE_API_TOKEN }}
+          MANIFEST_PATH: plugins.yml
+        run: |
+          exit_code=0
+          python .github/scripts/check-versions.py || exit_code=$?
+
+          if [ $exit_code -eq 1 ]; then
+            echo "::error::Known vulnerabilities detected — see log above"
+            exit 1
+          elif [ $exit_code -eq 2 ]; then
+            echo "::warning::Some plugins/themes are outdated — see log above"
+            exit 0
+          fi
