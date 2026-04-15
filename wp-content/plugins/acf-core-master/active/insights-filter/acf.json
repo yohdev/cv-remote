@@ -1,0 +1,42 @@
+[
+    {
+        "key": "group_if_7c4e9a2b1d8",
+        "title": "Insights Filter",
+        "fields": [
+            {
+                "key": "field_if_posts_per_page",
+                "label": "Posts Per Page",
+                "name": "posts_per_page",
+                "type": "number",
+                "instructions": "Number of posts to show per page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "30", "class": "", "id": "" },
+                "default_value": 9,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 3,
+                "max": 24,
+                "step": 3
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/insights-filter"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Fields for the Insights Filter block."
+    }
+]

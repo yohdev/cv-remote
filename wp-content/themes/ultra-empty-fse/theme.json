@@ -1,0 +1,132 @@
+{
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "768px",
+      "wideSize": "1200px"
+    },
+    "color": {
+      "custom": true,
+      "defaultPalette": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#0043ce",
+          "name": "Primary"
+        },
+        {
+          "slug": "secondary",
+          "color": "#393939",
+          "name": "Secondary"
+        },
+        {
+          "slug": "tertiary",
+          "color": "#f0f0f0",
+          "name": "Tertiary"
+        },
+        {
+          "slug": "contrast",
+          "color": "#111111",
+          "name": "Contrast"
+        },
+        {
+          "slug": "base",
+          "color": "#ffffff",
+          "name": "Base"
+        },
+        {
+          "slug": "base-2",
+          "color": "#f7f7f7",
+          "name": "Base 2"
+        },
+        {
+          "slug": "accent",
+          "color": "#0065d1",
+          "name": "Accent"
+        },
+        {
+          "slug": "accent-2",
+          "color": "#7b00ff",
+          "name": "Accent 2"
+        }
+      ]
+    },
+    "spacing": {
+      "units": ["px", "em", "rem", "vw", "vh", "%"]
+    },
+    "typography": {
+      "fontFamilies": [],
+      "customFontSize": true,
+      "fontStyle": true,
+      "fontWeight": true,
+      "letterSpacing": true,
+      "lineHeight": true,
+      "textDecoration": true,
+      "textTransform": true,
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.875rem",
+          "name": "Small"
+        },
+        {
+          "slug": "medium",
+          "size": "1rem",
+          "name": "Medium"
+        },
+        {
+          "slug": "large",
+          "size": "1.25rem",
+          "name": "Large"
+        },
+        {
+          "slug": "x-large",
+          "size": "1.5rem",
+          "name": "Extra Large"
+        },
+        {
+          "slug": "xx-large",
+          "size": "2rem",
+          "name": "XX Large"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontSize": "2.5rem"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontSize": "2rem"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontSize": "1.75rem"
+        }
+      },
+      "h4": {
+        "typography": {
+          "fontSize": "1.5rem"
+        }
+      },
+      "h5": {
+        "typography": {
+          "fontSize": "1.25rem"
+        }
+      },
+      "h6": {
+        "typography": {
+          "fontSize": "1rem"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.acc-head {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	max-width: unset !important;
+	padding: 10px 10px 10px 10px;
+	height: auto;
+	transition: all 0.5s;
+	color: #fff;
+	cursor: pointer;
+	box-sizing: border-box;
+	background-color: #333;
+	border-radius: 5px;
+	margin-bottom: 10px !important;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+	letter-spacing: 0.075em;
+}
+.acc-body {
+	width: 100%;
+	max-width: unset !important;
+}
+.acc-body p:last-child {
+	margin-bottom: 20px;
+}
+.acc-body ul {
+	list-style: inside;
+	padding: 20px 0 20px 0;
+}
+.acc-head svg {
+	width: 24px;
+	height: 24px;
+	fill: #999;
+	transition: all 0.5s;
+}
+.acc-head .toggle-on {
+	display: none;
+}
+.acc-title {
+	line-height: 1.1em;
+	max-width: calc(100% - 60px);
+}
+.acc-head.active .toggle-off {
+	display: none;
+}
+.acc-head.active .toggle-on {
+	display: block;
+}
+.acc-body {
+	display: none;
+	flex-wrap: wrap;
+	position: relative;
+	margin-top: 0;
+}
+.acc-body .block-editor-inner-blocks {
+	position: relative;
+	clear: both;
+	width: 100% !important;
+}
+.acf-block-preview .acc-body {
+	display: flex !important;
+}
+.acc-body.active {
+	display: block;
+}
+.acc-body p {
+	line-height: 2em;
+}
+.acc-body p:first-child {
+	margin-top: 0;
+}

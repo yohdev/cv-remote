@@ -1,0 +1,102 @@
+[
+    {
+        "key": "group_navigation_dots_123",
+        "title": "Navigation Dots",
+        "fields": [
+            {
+                "key": "field_nav_position",
+                "label": "Position",
+                "name": "position",
+                "type": "button_group",
+                "instructions": "Choose which side to display the navigation",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "right": "Right",
+                    "left": "Left"
+                },
+                "default_value": "right",
+                "layout": "horizontal",
+                "return_format": "value"
+            },
+            {
+                "key": "field_nav_dots_repeater",
+                "label": "Navigation Dots",
+                "name": "navigation_dots",
+                "type": "repeater",
+                "instructions": "Add navigation dots that will scroll to page anchors",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "button_label": "Add Dot",
+                "sub_fields": [
+                    {
+                        "key": "field_nav_dot_name",
+                        "label": "Dot Name",
+                        "name": "dot_name",
+                        "type": "text",
+                        "instructions": "Name/label for the navigation dot",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "e.g. Home, About, Contact",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_nav_anchor_id",
+                        "label": "Anchor ID",
+                        "name": "anchor_id",
+                        "type": "text",
+                        "instructions": "The ID of the anchor to scroll to (without #)",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "e.g. section-1, about-us",
+                        "prepend": "#",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/navigation-dots"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

@@ -1,0 +1,222 @@
+.insights-carousel {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.insights-carousel__track-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.insights-carousel__track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.insights-carousel__slide {
+    box-sizing: border-box;
+}
+
+.insights-carousel__card {
+    background-color: #e8f0f8;
+    border-radius: 16px 60px 16px 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.single-related .insights-carousel__card {
+    background-color: #fff;
+}
+
+
+.insights-carousel__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+}
+
+.insights-carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.insights-carousel__badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    background-color: #fff;
+    color: #1e3a5f;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    line-height: 1.4;
+}
+
+.insights-carousel__meta {
+    font-size: 0.8125rem;
+    color: #4a5568;
+    padding: 1rem 1.25rem 0;
+}
+
+.insights-carousel__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0.5rem 0 0;
+    padding: 0 1.25rem;
+    line-height: 1.35;
+    font-family: var(--wp--preset--font-family--manrope);
+}
+
+.insights-carousel__excerpt {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0.5rem 0 0;
+    padding: 0 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.insights-carousel__link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    text-decoration: none;
+    padding: 1rem 1.25rem 1.25rem;
+    margin-top: auto;
+    display: inline-block;
+}
+
+.insights-carousel__link:hover {
+    text-decoration: underline;
+}
+
+/* Controls — hidden on desktop */
+.insights-carousel__controls {
+    display: none;
+}
+
+.insights-carousel__buttons {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.insights-carousel__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #1e3a5f;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    padding: 0;
+}
+
+.insights-carousel__btn:hover {
+    background-color: #16304f;
+    transform: scale(1.05);
+}
+
+.insights-carousel__btn:focus-visible {
+    outline: 3px solid #c0533a;
+    outline-offset: 2px;
+}
+
+.insights-carousel__btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.insights-carousel__counter {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a2e;
+}
+
+.insights-carousel__empty {
+    text-align: center;
+    color: #888;
+    padding: 2rem;
+}
+
+/* ── Mobile: carousel mode ── */
+@media (max-width: 781px) {
+    .insights-carousel .insights-carousel__track-wrapper {
+        overflow: hidden !important;
+    }
+
+    .insights-carousel .insights-carousel__track,
+    .insights-carousel .insights-carousel__track.insights-carousel__track {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
+        grid-template-columns: none !important;
+        transition: transform 0.4s ease;
+        will-change: transform;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .insights-carousel .insights-carousel__track > * {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        max-width: none !important;
+    }
+
+    .insights-carousel .insights-carousel__slide,
+    .insights-carousel .insights-carousel__slide.insights-carousel__slide {
+        min-width: 100% !important;
+        width: 100% !important;
+        flex-shrink: 0 !important;
+        flex-basis: 100% !important;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .insights-carousel__card {
+        height: auto;
+    }
+
+    .insights-carousel__excerpt {
+        -webkit-line-clamp: 3;
+        font-size: 0.875rem;
+    }
+
+    .insights-carousel__title {
+        font-size: 1rem;
+    }
+
+    .insights-carousel__controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.25rem;
+        padding: 0 0.5rem;
+    }
+}
+
+/* ── 2-column fallback for tablets ── */
+@media (min-width: 782px) and (max-width: 1024px) {
+    .insights-carousel__track {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

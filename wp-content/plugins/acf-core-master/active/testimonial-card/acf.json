@@ -1,0 +1,42 @@
+[
+    {
+        "key": "group_testimonial_card_68ea",
+        "title": "Testimonial Card",
+        "fields": [
+            {
+                "key": "field_testimonial_card_post_68ea",
+                "label": "Testimonial",
+                "name": "testimonial_post",
+                "type": "relationship",
+                "instructions": "Select a testimonial to display.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "post_type": ["testimonial"],
+                "taxonomy": [],
+                "filters": ["search"],
+                "elements": ["featured_image"],
+                "min": 1,
+                "max": 1,
+                "return_format": "object"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/testimonial-card"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

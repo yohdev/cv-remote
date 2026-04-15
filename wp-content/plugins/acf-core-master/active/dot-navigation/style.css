@@ -1,0 +1,136 @@
+/**
+ * Navigation Dots Block Styles
+ * Fixed vertical dot navigation
+ */
+
+.navigation-dots {
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1000;
+}
+
+/* Default position: Right */
+.navigation-dots,
+.navigation-dots--right {
+	right: 2rem;
+	left: auto;
+}
+
+/* Left position */
+.navigation-dots--left {
+	left: 2rem;
+	right: auto;
+}
+
+.navigation-dots__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.navigation-dots__item {
+	margin: 0;
+	padding: 0;
+}
+
+.navigation-dots__link {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.navigation-dots__dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.7);
+	transition: all 0.3s ease;
+	display: block;
+}
+
+.navigation-dots__label {
+	opacity: 0;
+	visibility: hidden;
+	white-space: nowrap;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	font-size: 0.875rem;
+	transition: all 0.3s ease;
+	position: absolute;
+	font-family: 'Oswald', sans-serif;
+}
+
+/* Label position for right side (default) */
+.navigation-dots__label,
+.navigation-dots--right .navigation-dots__label {
+	right: calc(100% + 0.75rem);
+	left: auto;
+	transform: translateX(-10px);
+}
+
+.navigation-dots--right .navigation-dots__link:hover .navigation-dots__label {
+	transform: translateX(0);
+}
+
+/* Label position for left side */
+.navigation-dots--left .navigation-dots__label {
+	left: calc(100% + 0.75rem);
+	right: auto;
+	transform: translateX(10px);
+}
+
+.navigation-dots--left .navigation-dots__link:hover .navigation-dots__label {
+	transform: translateX(0);
+}
+
+/* Hover States */
+.navigation-dots__link:hover .navigation-dots__dot {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navigation-dots__link:hover .navigation-dots__label {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+}
+
+/* Active State */
+.navigation-dots__link.active .navigation-dots__dot {
+	background-color: #efefef;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.navigation-dots,
+	.navigation-dots--right {
+		right: 1rem;
+	}
+
+	.navigation-dots--left {
+		left: 1rem;
+	}
+
+	.navigation-dots__list {
+		gap: 1rem;
+	}
+
+	.navigation-dots__dot {
+		width: 10px;
+		height: 10px;
+	}
+
+	.navigation-dots__label {
+		font-size: 0.75rem;
+		padding: 0.375rem 0.75rem;
+		font-family: 'Oswald', sans-serif;
+	}
+}

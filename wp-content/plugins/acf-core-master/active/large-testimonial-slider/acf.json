@@ -1,0 +1,42 @@
+[
+    {
+        "key": "group_lts_a7c3e9f1b2d4",
+        "title": "Large Testimonial Slider",
+        "fields": [
+            {
+                "key": "field_lts_testimonials_rel",
+                "label": "Testimonials",
+                "name": "testimonials",
+                "type": "relationship",
+                "instructions": "Select one or more testimonials to display in the slider.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "post_type": ["testimonial"],
+                "taxonomy": [],
+                "filters": ["search"],
+                "elements": ["featured_image"],
+                "min": 1,
+                "max": 0,
+                "return_format": "object"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/large-testimonial-slider"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Fields for the Large Testimonial Slider block."
+    }
+]

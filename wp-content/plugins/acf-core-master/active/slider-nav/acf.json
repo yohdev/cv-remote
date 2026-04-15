@@ -1,0 +1,88 @@
+[
+    {
+        "key": "group_slider_nav_block_fields",
+        "title": "Slider Navigation Block",
+        "fields": [
+            {
+                "key": "field_slider_nav_message",
+                "label": "Slider Navigation",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "gberg-label",
+                    "id": ""
+                },
+                "message": "Add navigation items and content using InnerBlocks below. The hamburger menu will appear in the top-left corner.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_slider_nav_width",
+                "label": "Panel Width",
+                "name": "panel_width",
+                "type": "select",
+                "instructions": "Choose the width of the slide-out panel",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "narrow": "Narrow (250px)",
+                    "medium": "Medium (300px)",
+                    "wide": "Wide (350px)",
+                    "extra-wide": "Extra Wide (400px)"
+                },
+                "default_value": "medium",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_slider_nav_overlay",
+                "label": "Show Overlay",
+                "name": "show_overlay",
+                "type": "true_false",
+                "instructions": "Show a dark overlay when menu is open",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Yes",
+                "ui_off_text": "No"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/slider-nav-block"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

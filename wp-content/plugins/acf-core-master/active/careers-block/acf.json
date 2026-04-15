@@ -1,0 +1,57 @@
+[
+    {
+        "key": "group_careers_block_2026a1b",
+        "title": "Careers Block",
+        "fields": [
+            {
+                "key": "field_cb_section_heading",
+                "label": "Section Heading",
+                "name": "section_heading",
+                "type": "text",
+                "instructions": "Heading shown above the grid. Leave blank to hide.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "default_value": "Open Positions",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_cb_careers_rel",
+                "label": "Careers",
+                "name": "careers",
+                "type": "relationship",
+                "instructions": "Select the careers to feature in the grid.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "post_type": ["careers"],
+                "taxonomy": [],
+                "filters": ["search", "taxonomy"],
+                "elements": ["featured_image"],
+                "min": 1,
+                "max": 0,
+                "return_format": "object"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/careers-block"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Fields for the Careers Block."
+    }
+]

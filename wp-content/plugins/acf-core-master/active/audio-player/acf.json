@@ -1,0 +1,615 @@
+[
+    {
+        "key": "group_audio_player_unified",
+        "title": "Audio Player",
+        "fields": [
+            {
+                "key": "field_audio_player_label",
+                "label": "Audio Player",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "gberg-label hide-sidebar",
+                    "id": ""
+                },
+                "message": "Unified Audio Player with Button and Playlist Modes",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_player_mode",
+                "label": "Player Mode",
+                "name": "player_mode",
+                "type": "button_group",
+                "instructions": "Choose between button mode (single audio) or playlist mode (multiple tracks)",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "button": "Audio Button",
+                    "playlist": "Playlist Player"
+                },
+                "default_value": "button",
+                "layout": "horizontal",
+                "allow_null": 0,
+                "return_format": "value"
+            },
+            {
+                "key": "field_button_mode_tab",
+                "label": "Button Settings",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_button_type",
+                "label": "Button Type",
+                "name": "button_type",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "text": "Text",
+                    "image": "Image"
+                },
+                "default_value": "text",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_button_thumb",
+                "label": "Thumb",
+                "name": "thumb",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        },
+                        {
+                            "field": "field_button_type",
+                            "operator": "==",
+                            "value": "image"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_button_title",
+                "label": "Title",
+                "name": "title",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Audio title goes here",
+                "placeholder": "Audio title goes here",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_button_audio_source",
+                "label": "Audio Source",
+                "name": "audio_source",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "upload": "Upload",
+                    "remote": "Remote"
+                },
+                "default_value": "upload",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_button_upload",
+                "label": "Upload",
+                "name": "upload",
+                "type": "file",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        },
+                        {
+                            "field": "field_button_audio_source",
+                            "operator": "==",
+                            "value": "upload"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "mp3, m4a, ogg"
+            },
+            {
+                "key": "field_button_file_url",
+                "label": "File URL",
+                "name": "file_url",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        },
+                        {
+                            "field": "field_button_audio_source",
+                            "operator": "==",
+                            "value": "remote"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_button_disclaimer_url",
+                "label": "Disclaimer Audio Upload (Optional)",
+                "name": "disclaimer_url",
+                "type": "file",
+                "instructions": "Optional: Upload disclaimer audio that plays before the main audio",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "button"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "mp3, m4a, ogg"
+            },
+            {
+                "key": "field_playlist_mode_tab",
+                "label": "Playlist Settings",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_playlist_source",
+                "label": "Playlist Source",
+                "name": "playlist_source",
+                "type": "button_group",
+                "instructions": "Choose how to provide the playlist data",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "paste": "Paste JSON",
+                    "remote": "Remote URL"
+                },
+                "default_value": "paste",
+                "layout": "horizontal",
+                "allow_null": 0,
+                "return_format": "value"
+            },
+            {
+                "key": "field_playlist_json",
+                "label": "Playlist JSON",
+                "name": "playlist_json",
+                "type": "textarea",
+                "instructions": "Paste your playlist JSON data here. Format: [{\"title\": \"Song Name\", \"url\": \"/path/to/file.mp3\"}, ...]",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        },
+                        {
+                            "field": "field_playlist_source",
+                            "operator": "==",
+                            "value": "paste"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "[{\"title\": \"Song Title\", \"url\": \"/path/to/song.mp3\"}]",
+                "maxlength": "",
+                "rows": 10,
+                "new_lines": ""
+            },
+            {
+                "key": "field_playlist_remote_url",
+                "label": "Remote JSON URL",
+                "name": "playlist_remote_url",
+                "type": "url",
+                "instructions": "Enter the URL to a remote JSON playlist file (e.g., https://solyradio.com/radio/broadcast-0001.json)",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        },
+                        {
+                            "field": "field_playlist_source",
+                            "operator": "==",
+                            "value": "remote"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https://solyradio.com/radio/broadcast-0001.json"
+            },
+            {
+                "key": "field_playlist_autoplay_accordion",
+                "label": "Autoplay Settings",
+                "name": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 1,
+                "endpoint": 0
+            },
+            {
+                "key": "field_playlist_autoplay",
+                "label": "Enable Autoplay",
+                "name": "autoplay",
+                "type": "true_false",
+                "instructions": "Start playing automatically when the page loads",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Yes",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_playlist_show_accordion",
+                "label": "Playlist Display Settings",
+                "name": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 1,
+                "endpoint": 0
+            },
+            {
+                "key": "field_playlist_show",
+                "label": "Show Playlist",
+                "name": "show_playlist",
+                "type": "true_false",
+                "instructions": "Display the playlist below the player",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Show",
+                "ui_off_text": "Hide"
+            },
+            {
+                "key": "field_playlist_loop_accordion",
+                "label": "Loop Settings",
+                "name": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 1,
+                "endpoint": 0
+            },
+            {
+                "key": "field_playlist_loop",
+                "label": "Enable Loop",
+                "name": "loop_playlist",
+                "type": "true_false",
+                "instructions": "Loop back to the first track after the playlist ends",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_player_mode",
+                            "operator": "==",
+                            "value": "playlist"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Enable",
+                "ui_off_text": "Disable"
+            },
+            {
+                "key": "field_attributes_tab",
+                "label": "Attributes",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_custom_attributes",
+                "label": "Custom Attributes",
+                "name": "attributes",
+                "type": "text",
+                "instructions": "Add any custom HTML attributes",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/audio-player"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Unified audio player with button and playlist modes"
+    }
+]

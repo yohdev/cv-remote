@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:10114/)",
+      "Read(//Users/scott/Local Sites/cvremote/app/**)",
+      "Read(//Users/scott/Local Sites/cvremote/**)",
+      "Bash(find '/Users/scott/Local Sites/cvremote' -name *.log -type f)"
+    ]
+  }
+}

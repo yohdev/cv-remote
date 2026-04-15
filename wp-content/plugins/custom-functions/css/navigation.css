@@ -1,0 +1,403 @@
+/* ─────────────────────────────────────────────────────────────
+   CVRS Navigation Styles
+   Applied to the native WordPress Navigation block
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Site Header ── */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	background: #fff;
+	transition: box-shadow 0.3s ease;
+	align-items: center;
+}
+
+.site-header.scrolled {
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Desktop Navigation Links ── */
+.wp-block-navigation .wp-block-navigation-item__content {
+	color: #03003c;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 0.875rem;
+	letter-spacing: 0.02em;
+	transition: color 0.3s ease;
+}
+
+.top-menu .wp-block-navigation .wp-block-navigation-item {
+    margin-top: 10px;
+	padding-bottom: 10px;
+}
+.wp-block-navigation .wp-block-navigation-item__content:hover,
+.wp-block-navigation .wp-block-navigation-item__content:focus {
+	color: #00508d;
+}
+
+/* Current / active menu item */
+.wp-block-navigation .current-menu-item > .wp-block-navigation-item__content,
+.wp-block-navigation .wp-block-navigation-item--active > .wp-block-navigation-item__content {
+	color: #00508d;
+}
+
+/* ── Desktop Submenu Dropdowns ── */
+.wp-block-navigation .has-child .wp-block-navigation__submenu-container {
+	background: #F1F6FB;
+	border: none;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+	padding: 0px 5px 10px 5px;
+	box-sizing: border-box;
+	min-width: 320px;
+	margin-top: 0;
+	white-space: nowrap;
+	overflow: visible;
+}
+
+/* Arrow pointer at top of dropdown */
+.wp-block-navigation .has-child .wp-block-navigation__submenu-container::before {
+	content: '';
+	position: absolute;
+	top: -5px;
+	left: 30px;
+	width: 12px;
+	height: 12px;
+	background: #F1F6FB;
+	transform: rotate(45deg);
+	border-radius: 3px 0 0 0;
+	box-shadow: -3px -3px 8px rgba(0, 0, 0, 0.08);
+	z-index: 1;
+}
+
+.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item {
+	border-bottom: 1px solid #E5E7EB;
+	padding: 0;
+}
+
+.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item:last-child {
+	border-bottom: none;
+}
+
+.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	font-weight: 500;
+	text-transform: none;
+	font-size: 0.9375rem;
+	padding: 14px 28px;
+	color: #03003c;
+	display: block;
+	margin: 0;
+}
+
+.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover,
+.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content:focus {
+	color: #00508d;
+	background: #f5f8fc;
+}
+
+/* Submenu indicator arrow on desktop */
+.wp-block-navigation .has-child > .wp-block-navigation-item__content .wp-block-navigation__submenu-icon {
+	transition: transform 0.3s ease;
+}
+
+.wp-block-navigation .has-child:hover > .wp-block-navigation-item__content .wp-block-navigation__submenu-icon,
+.wp-block-navigation .has-child > .wp-block-navigation-item__content[aria-expanded="true"] .wp-block-navigation__submenu-icon {
+	transform: rotate(180deg);
+}
+
+/* ── CTA Button in Header ── */
+.header-cta .wp-block-button__link {
+	background-color: #03003c !important;
+	color: #fff !important;
+	border-radius: 100px !important;
+	font-weight: 700;
+	font-size: 14px;
+	padding: 12px 28px;
+	text-decoration: none;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	white-space: nowrap;
+}
+
+.header-cta .wp-block-button__link:hover,
+.header-cta .wp-block-button__link:focus {
+	background-color: #00508d !important;
+	transform: translateY(-1px);
+}
+
+/* ── Mobile Overlay (hamburger menu) ── */
+@media (max-width: 1024px) {
+
+	/* Hide CTA button on mobile — keep nav clean */
+	.site-header .header-cta {
+		display: none;
+	}
+
+	/* Overlay panel styling */
+	.wp-block-navigation__responsive-container.is-menu-open {
+		background: #fff !important;
+		padding: 80px 24px 24px;
+	}
+
+	/* Stack nav items vertically with dividers */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+		flex-direction: column;
+		gap: 0;
+		align-items: stretch;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+		border-bottom: 1px solid #e5e7eb;
+		width: 100%;
+	}
+
+	/* Parent items with submenus: row layout so toggle sits beside the link */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child > .wp-block-navigation-item__content {
+		flex: 1 1 0;
+	}
+
+	/* Submenu container spans full width below the row */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container {
+		flex-basis: 100%;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item:last-child {
+		border-bottom: none;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+		padding: 16px 0;
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: #03003c;
+		text-transform: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	/* ── Mobile Submenu Toggle Button (+/- icons) ── */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle {
+		background: #03003c;
+		border: none;
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+		min-width: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		position: relative;
+		margin-left: auto;
+		margin-right: 4px;
+		flex-shrink: 0;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle:hover,
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle:focus {
+		background: #00508d;
+		outline: 2px solid #00508d;
+		outline-offset: 2px;
+	}
+
+	/* Hide default SVG arrow */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle svg {
+		display: none;
+	}
+
+	/* Plus icon (default state) */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle::before,
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle::after {
+		content: '';
+		position: absolute;
+		background: #fff;
+		transition: transform 0.3s ease;
+	}
+
+	/* Horizontal line */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle::before {
+		width: 14px;
+		height: 2px;
+	}
+
+	/* Vertical line (creates the +) */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle::after {
+		width: 2px;
+		height: 14px;
+	}
+
+	/* Minus icon (expanded state) — rotate vertical line to horizontal */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle[aria-expanded="true"]::after {
+		transform: rotate(90deg);
+	}
+
+	/* ── Force submenu toggle buttons visible in mobile overlay ──
+	   WP core hides .wp-block-navigation__submenu-icon in the overlay
+	   for "open-on-hover-click" mode. Override to show our +/- buttons. */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-icon {
+		display: flex !important;
+	}
+
+	/* ── Force submenus collapsed by default in mobile overlay ── */
+	.wp-block-navigation__responsive-container.is-menu-open .has-child > .wp-block-navigation__submenu-container {
+		display: none !important;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .has-child > .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container {
+		display: block !important;
+	}
+
+	/* Mobile submenu items */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
+		background: transparent !important;
+		box-shadow: none !important;
+		border-radius: 0;
+		padding: 0 0 8px 16px;
+		margin: 0;
+		position: static !important;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item {
+		border-bottom: none;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+		font-weight: 500;
+		font-size: 1rem;
+		color: #525A6B;
+		padding: 10px 0;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+		color: #00508d;
+	}
+
+	/* ── Close button styling ── */
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+		top: 20px;
+		right: 20px;
+		z-index: 10;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close svg {
+		width: 28px;
+		height: 28px;
+		stroke: #03003c;
+		stroke-width: 1.5;
+	}
+
+	/* ── Logo inside mobile overlay ──
+	   Add a Site Logo block inside the navigation block in the editor.
+	   Give it the CSS class "mobile-overlay-logo" in the block settings.
+	   It will be hidden on desktop and shown at top-left in the mobile overlay. */
+	.mobile-overlay-logo {
+		display: none;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-logo {
+		display: block;
+		margin-bottom: 24px;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-logo img {
+		max-width: 200px;
+		height: auto;
+	}
+
+	/* ── CTA banner at bottom of mobile overlay ──
+	   Add a Group block at the end of the navigation block in the editor.
+	   Give it the CSS class "mobile-overlay-cta" in the block settings. */
+	.mobile-overlay-cta {
+		display: none;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-cta {
+		display: block;
+		background: linear-gradient(135deg, #03003c 0%, #00508d 100%);
+		border-radius: 16px;
+		padding: 32px 24px;
+		margin-top: auto;
+		text-align: center;
+		color: #fff;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-cta p,
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-cta h3,
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-cta h4 {
+		color: #fff !important;
+		margin-bottom: 16px;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-cta .wp-block-button__link {
+		background: #fff !important;
+		color: #03003c !important;
+		border-radius: 100px;
+		font-weight: 700;
+		font-size: 0.9375rem;
+		padding: 14px 32px;
+		text-decoration: none;
+		display: inline-block;
+		transition: background-color 0.3s ease, transform 0.2s ease;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-cta .wp-block-button__link:hover {
+		background: #e2edf6 !important;
+		transform: translateY(-1px);
+	}
+}
+
+/* ── Focus Visible for Keyboard Navigation ── */
+.wp-block-navigation .wp-block-navigation-item__content:focus-visible {
+	outline: 2px solid #00508d;
+	outline-offset: 4px;
+	border-radius: 2px;
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+	.site-header,
+	.wp-block-navigation .wp-block-navigation-item__content,
+	.wp-block-navigation .has-child .wp-block-navigation__submenu-container,
+	.header-cta .wp-block-button__link,
+	.wp-block-navigation-submenu__toggle {
+		transition: none;
+	}
+}
+
+/* Mobile Breakpoint */
+
+@media (max-width: 1070px) {
+  /* Show the hamburger toggle */
+  .wp-block-navigation__responsive-container-open:not(.always-shown) {
+	display: flex !important;
+  }
+
+  /* Hide the inline desktop menu */
+  .wp-block-navigation__responsive-container:not(.is-menu-open) {
+	display: none !important;
+  }
+
+  /* When opened, show it as the full overlay */
+  .wp-block-navigation__responsive-container.is-menu-open {
+	display: flex !important;
+  }
+}
+
+@media (max-width: 1070px) {
+  .wp-block-navigation .wp-block-navigation__responsive-container-open svg {
+	width: 24px;
+	height: 24px;
+  }
+}
+

@@ -1,0 +1,91 @@
+.careers-block {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.careers-block__heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #141414;
+    text-align: center;
+    margin: 0 0 2rem;
+}
+
+.careers-block__empty {
+    text-align: center;
+    color: #525A6B;
+    font-style: italic;
+}
+
+.careers-block__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.careers-block__card {
+    flex: 1 1 280px;
+    max-width: 420px;
+    min-width: 0;
+    box-sizing: border-box;
+    background-color: #F1F6FB;
+    border-radius: 12px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.careers-block__title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #141414;
+    margin: 0;
+    line-height: 1.25;
+    font-family: var(--wp--preset--font-family--manrope);
+}
+
+.careers-block__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.careers-block__tag {
+    display: inline-block;
+    background-color: #e2edf6;
+    color: #141414;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    line-height: 1;
+}
+
+.careers-block__divider {
+    border: 0;
+    border-top: 1px solid rgba(20, 20, 20, 0.12);
+    margin: 0;
+}
+
+.careers-block__subtitle {
+    color: #525A6B;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.careers-block__link {
+    color: #00508d;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: auto;
+}
+
+.careers-block__link:hover,
+.careers-block__link:focus {
+    text-decoration: underline;
+}

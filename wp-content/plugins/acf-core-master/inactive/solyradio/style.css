@@ -1,0 +1,132 @@
+.solyradio-player {
+	max-width: 100%;
+	background-color: #000;
+	border-radius: 8px;
+	box-shadow: 0 0 20px #000000a1;
+}
+
+.solyradio-player-wrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	padding: 0;
+	width: calc(100% - 20px);
+	border-radius: 10px;
+	margin: 0 auto 10px auto;
+}
+
+.plyr__control svg {
+	fill: #efefef;
+}
+
+.plyr__time {
+	color: #fff;
+}
+
+.plyr--audio {
+	position: relative;
+	margin: 0 auto;
+	width: calc(100% - 119px);
+}
+
+.plyr.plyr--full-ui{
+	background-color: transparent;
+}
+
+
+.plyr--audio .plyr__controls {
+	display: flex;
+	position: relative;
+	width: 100% !important;
+	border-radius: 6px !important;
+	padding: 0 !important;
+}
+
+.solyradio-autoplay-toggle {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: #fff;
+	font-size: 10px;
+	z-index: 10;
+	padding: 0 0 0 10px;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	border-color: #333;
+}
+
+.solyradio-autoplay-toggle label {
+	cursor: pointer;
+	user-select: none;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.solyradio-autoplay-toggle input[type="checkbox"] {
+	position: relative;
+	width: 40px;
+	height: 20px;
+	-webkit-appearance: none;
+	appearance: none;
+	background: #666;
+	outline: none;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.solyradio-autoplay-toggle input[type="checkbox"]:checked {
+	background: #00b3ff;
+}
+
+.solyradio-autoplay-toggle input[type="checkbox"]:before {
+	content: "";
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	top: 2px;
+	left: 2px;
+	background: #fff;
+	transition: transform 0.3s;
+}
+
+.solyradio-autoplay-toggle input[type="checkbox"]:checked:before {
+	transform: translateX(20px);
+}
+
+.solyradio-playlist {
+	background: #000;
+	color: #fff;
+	max-height: 400px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: #000;
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	border-color: #333;
+}
+
+.solyradio-playlist-item {
+	cursor: pointer;
+	border-bottom: 1px solid #333;
+	transition: background 0.2s;
+	padding: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+}
+
+.solyradio-playlist-item:hover {
+	background: #222;
+}
+
+.solyradio-playlist-item.active {
+	background: #333;
+}

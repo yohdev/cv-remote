@@ -1,0 +1,118 @@
+[
+    {
+        "key": "group_solyradio_block",
+        "title": "SolyRadio Player",
+        "fields": [
+            {
+                "key": "field_solyradio_label",
+                "label": "SolyRadio Player",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "gberg-label",
+                    "id": ""
+                },
+                "message": "Configure your SolyRadio playlist player",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_solyradio_playlist_json",
+                "label": "Playlist JSON",
+                "name": "playlist_json",
+                "type": "textarea",
+                "instructions": "Paste your playlist JSON data here. Format: [{\"title\": \"Song Name\", \"url\": \"/path/to/file.mp3\"}, ...]",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "[{\"title\": \"Song Title\", \"url\": \"/path/to/song.mp3\"}]",
+                "maxlength": "",
+                "rows": 10,
+                "new_lines": ""
+            },
+            {
+                "key": "field_solyradio_autoplay",
+                "label": "Autoplay",
+                "name": "autoplay",
+                "type": "true_false",
+                "instructions": "Start playing automatically when the page loads",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Yes",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_solyradio_show_playlist",
+                "label": "Show Playlist",
+                "name": "show_playlist",
+                "type": "true_false",
+                "instructions": "Display the playlist below the player",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Show",
+                "ui_off_text": "Hide"
+            },
+            {
+                "key": "field_solyradio_loop",
+                "label": "Loop Playlist",
+                "name": "loop_playlist",
+                "type": "true_false",
+                "instructions": "Loop back to the first track after the playlist ends",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Enable",
+                "ui_off_text": "Disable"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/solyradio"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "A Plyr-based audio player for SolyRadio playlists"
+    }
+]
