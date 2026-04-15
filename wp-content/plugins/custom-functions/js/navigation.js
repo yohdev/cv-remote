@@ -1,0 +1,73 @@
+/**
+ * CVRS Navigation Enhancements
+ * - Sticky header shadow on scroll
+ * - Mobile accordion: only one section open at a time
+ */
+document.addEventListener('DOMContentLoaded', function () {
+
+	// ── Sticky header shadow on scroll ──
+	const header = document.querySelector('.site-header');
+	if (header) {
+		let ticking = false;
+		window.addEventListener('scroll', function () {
+			if (!ticking) {
+				window.requestAnimationFrame(function () {
+					if (window.scrollY > 10) {
+						header.classList.add('scrolled');
+					} else {
+						header.classList.remove('scrolled');
+					}
+					ticking = false;
+				});
+				ticking = true;
+			}
+		});
+	}
+
+	// ── Mobile accordion: collapse siblings when opening a submenu ──
+	function initMobileAccordion() {
+		const observer = new MutationObserver(function () {
+			const toggles = document.querySelectorAll(
+				'.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle'
+			);
+
+			toggles.forEach(function (toggle) {
+				if (toggle.dataset.cvrsAccordion) return; // already bound
+				toggle.dataset.cvrsAccordion = 'true';
+
+				toggle.addEventListener('click', function () {
+					const parent = this.closest('.wp-block-navigation-item');
+					if (!parent) return;
+
+					// Delay closing siblings so the current toggle's click
+					// fully processes through WP's Interactivity API first.
+					// Without this delay, the two state changes collide and
+					// the clicked submenu fails to open.
+					setTimeout(function () {
+						const siblings = parent.parentElement.querySelectorAll(
+							':scope > .wp-block-navigation-item'
+						);
+						siblings.forEach(function (sibling) {
+							if (sibling === parent) return;
+							const siblingToggle = sibling.querySelector(
+								':scope > .wp-block-navigation-submenu__toggle'
+							);
+							if (siblingToggle && siblingToggle.getAttribute('aria-expanded') === 'true') {
+								siblingToggle.click();
+							}
+						});
+					}, 100);
+				});
+			});
+		});
+
+		observer.observe(document.body, {
+			childList: true,
+			subtree: true,
+			attributes: true,
+			attributeFilter: ['class'],
+		});
+	}
+
+	initMobileAccordion();
+});

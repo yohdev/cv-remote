@@ -1,0 +1,126 @@
+/* ==========================================================================
+   FAQ Block
+   ========================================================================== */
+
+.faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Item */
+.faq__item {
+    background: #ffffff;
+    border-radius: 0.875rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* Question / trigger */
+.faq__question {
+    margin: 0;
+}
+
+.faq__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq__question-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0d1b2a;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* Icon — navy circle with + inside */
+.faq__icon {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: #1a3a6b;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.faq__trigger:hover .faq__icon,
+.faq__trigger:focus-visible .faq__icon {
+    background: #122c54;
+}
+
+.faq__icon-svg {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+}
+
+/* Vertical bar animates out when open */
+.faq__icon-v {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+.faq__item.is-open .faq__icon-v {
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+/* Answer panel */
+.faq__answer {
+    margin: 0;
+    overflow: hidden;
+}
+
+.faq__answer[hidden] {
+    display: none;
+}
+
+.faq__answer-inner {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #3a4a5a;
+}
+
+.faq__answer-inner p {
+    margin: 0 0 0.75em;
+}
+
+.faq__answer-inner p:last-child {
+    margin-bottom: 0;
+}
+
+/* Empty state */
+.faq__empty {
+    color: #5a6a7a;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    .faq__trigger {
+        padding: 1rem 1.125rem;
+    }
+
+    .faq__answer-inner {
+        padding: 0 1.125rem 1rem;
+    }
+}

@@ -1,0 +1,48 @@
+.copy-permalink {
+    display: inline-flex;
+}
+
+.copy-permalink__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.copy-permalink__btn:hover {
+    opacity: 0.8;
+}
+
+.copy-permalink__btn:focus-visible {
+    outline: 2px solid #00508D;
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
+/* Tooltip */
+.copy-permalink__tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00508D;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 3px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.copy-permalink__btn--copied .copy-permalink__tooltip {
+    opacity: 1;
+}

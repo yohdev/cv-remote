@@ -1,0 +1,565 @@
+/**
+ * Constitution Block Styles
+ * Complete stylesheet with navigation, progress bar, and theming
+ */
+
+/* ============================================
+   BLOCK CONTAINER
+   ============================================ */
+
+.constitution-block {
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+
+.constitution-progress {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background-color: rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+}
+
+/* Disable progress bar in WordPress editor */
+.block-editor-block-list__layout .constitution-progress,
+.editor-styles-wrapper .constitution-progress {
+	display: none;
+}
+
+.constitution-progress__bar {
+	height: 100%;
+	width: 0;
+	background-color: #ff0000;
+	transition: width 0.1s ease;
+}
+
+/* ============================================
+   FIXED NAVIGATION
+   ============================================ */
+
+.constitution-nav {
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1000;
+}
+
+.block-editor__container .constitution-nav{
+	display: none;
+}
+
+/* Disable fixed positioning in WordPress editor */
+.block-editor-block-list__layout .constitution-nav,
+.editor-styles-wrapper .constitution-nav {
+	position: absolute;
+	top: 0;
+	transform: none;
+}
+
+/* Navigation Position - Default: Right */
+.constitution-nav,
+.constitution-nav--right {
+	right: 2rem;
+	left: auto;
+}
+
+/* Left position */
+.constitution-nav--left {
+	left: 0;
+	right: auto;
+}
+
+/* Navigation List */
+.constitution-nav__list {
+	list-style: none;
+	left: 0;
+	right: auto;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 10px;
+	padding: 10px;
+	border-radius:0 5px 5px 0;
+	background-color: #333;
+	border-style: solid;
+	border-width: 1px 1px 1px 0;
+	border-color: rgba(255, 255, 255, 0.146);
+}
+
+.constitution-nav__item {
+	margin: 0;
+	padding: 0;
+}
+
+/* Navigation Links */
+.constitution-nav__link {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+/* Navigation Dots */
+.constitution-nav__dot {
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background-color: var(--wp--preset--color--foreground, rgba(0, 0, 0, 0.5));
+	opacity: 0.5;
+	transition: all 0.3s ease;
+	display: block;
+	flex-shrink: 0;
+	border: 2px solid transparent;
+}
+
+/* Navigation Labels */
+.constitution-nav__label {
+	opacity: 0;
+	visibility: hidden;
+	white-space: nowrap;
+	background-color: #000;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.454);
+	font-size: var(--wp--preset--font-size--small, 0.875rem);
+	transition: all 0.3s ease;
+	position: absolute;
+	font-family: var(--wp--preset--font-family--body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+	pointer-events: none;
+	z-index: 10;
+}
+
+/* Label position for right side (default) */
+.constitution-nav__label,
+.constitution-nav--right .constitution-nav__label {
+	right: calc(100% + 0.75rem);
+	left: auto;
+	transform: translateX(-10px);
+}
+
+.constitution-nav--right .constitution-nav__link:hover .constitution-nav__label {
+	transform: translateX(0);
+}
+
+/* Label position for left side */
+.constitution-nav--left .constitution-nav__label {
+	left: calc(100% + 0.75rem);
+	right: auto;
+	transform: translateX(10px);
+}
+
+.constitution-nav--left .constitution-nav__link:hover .constitution-nav__label {
+	transform: translateX(0);
+}
+
+/* Hover States */
+.constitution-nav__link:hover .constitution-nav__dot {
+	opacity: 0.8;
+}
+
+.constitution-nav__link:hover .constitution-nav__label {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+}
+
+/* Active state */
+.constitution-nav__link.active .constitution-nav__dot {
+	background-color: var(--constitution-accent, var(--wp--preset--color--primary, #003366));
+	border-color: var(--constitution-accent, var(--wp--preset--color--primary, #003366));
+	opacity: 1;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.constitution-header h1 {
+	text-align: center;
+	font-size: var(--wp--preset--font-size--xx-large, 2.5rem);
+	margin-bottom: 2rem;
+	color: var(--constitution-primary, var(--wp--preset--color--foreground, #1a1a1a));
+	font-weight: normal;
+	font-family: 'Oswald',sans-serif;
+}
+
+/* ============================================
+   TABLE OF CONTENTS
+   ============================================ */
+
+.constitution-toc {
+	background: var(--constitution-toc-bg, #000);
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+	border-left: 4px solid var(--constitution-accent, #003366);
+	border-radius: 4px;
+}
+
+.constitution-toc h2 {
+	margin-top: 0;
+	font-size: 1.5rem;
+	color: var(--constitution-accent, #003366);
+	font-family: 'Oswald', sans-serif;
+}
+
+.constitution-toc ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.constitution-toc li {
+	margin: 0.5rem 0;
+}
+
+.constitution-toc ul ul {
+	padding-left: 1.5rem;
+	margin-top: 0.5rem;
+}
+
+.constitution-toc a {
+	color: var(--constitution-accent, #003366);
+	text-decoration: none;
+	transition: color 0.2s;
+	font-family: 'Oswald', sans-serif;
+}
+
+.constitution-toc a:hover {
+	color: var(--constitution-accent-hover, #0055aa);
+	text-decoration: underline;
+}
+
+/* ============================================
+   PREAMBLE
+   ============================================ */
+
+.preamble {
+	background: var(--constitution-preamble-bg, #f9f9f9);
+	padding: 2rem;
+	margin-bottom: 2rem;
+	border-left: 5px solid var(--constitution-preamble-accent, #8b0000);
+	border-radius: 4px;
+}
+
+.preamble h2{
+	font-family: 'Oswald', sans-serif;
+}
+
+.preamble-text {
+}
+
+/* ============================================
+   ARTICLES AND AMENDMENTS
+   ============================================ */
+
+.constitution-article,
+.constitution-amendment {
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	scroll-margin-top: 100px;
+}
+
+.constitution-article:last-child,
+.constitution-amendment:last-child {
+	border-bottom: none;
+}
+
+.constitution-block h2{
+	font-family: 'Oswald',sans-serif;
+}
+ .constitution-article h3,
+.constitution-amendment h4 {
+	color: var(--constitution-accent, var(--wp--preset--color--primary, #003366));
+	margin-bottom: 1rem;
+	font-size: var(--wp--preset--font-size--large, 1.75rem);
+	font-family: var(--wp--preset--font-family--heading, inherit);
+	font-family: 'Oswald',sans-serif;
+}
+
+ .constitution-article h3{
+	 color: #ff0000;
+ }
+
+.article-content,
+.amendment-content {
+	text-align: justify;
+}
+
+.article-content p,
+.amendment-content p {
+	margin-bottom: 1rem;
+}
+
+.article-content h4,
+.article-content h5,
+.amendment-content h5 {
+	color: #fff;
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+	font-weight: 600;
+	font-family: Oswald, 'sans-serif';
+
+}
+
+/* ============================================
+   COLLAPSIBLE SECTIONS
+   ============================================ */
+
+.article-collapsible,
+.amendment-collapsible {
+	margin-bottom: 1rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	scroll-margin-top: 100px;
+}
+
+.article-collapsible summary,
+.amendment-collapsible summary {
+	padding: 1rem;
+	cursor: pointer;
+	background: #f5f5f5;
+	transition: background 0.2s;
+	border-radius: 4px;
+}
+
+.article-collapsible summary:hover,
+.amendment-collapsible summary:hover {
+	background: #e8e8e8;
+}
+
+.article-collapsible summary h3,
+.amendment-collapsible summary h4 {
+	margin: 0;
+	display: inline;
+}
+
+.article-collapsible .article-content,
+.amendment-collapsible .amendment-content {
+	padding: 1rem;
+}
+
+.article-collapsible[open] summary,
+.amendment-collapsible[open] summary {
+	border-bottom: 1px solid #ddd;
+	border-radius: 4px 4px 0 0;
+}
+
+/* ============================================
+   SOURCE ATTRIBUTION
+   ============================================ */
+
+.constitution-source {
+	margin-top: 3rem;
+	padding-top: 2rem;
+	border-top: 2px solid var(--constitution-accent, #003366);
+	text-align: center;
+}
+
+.constitution-source p {
+	font-size: 0.9rem;
+	color: #666;
+}
+
+.constitution-source a {
+	color: var(--constitution-accent, #003366);
+	text-decoration: none;
+}
+
+.constitution-source a:hover {
+	text-decoration: underline;
+}
+
+/* ============================================
+   COLOR THEMES
+   ============================================ */
+
+/* WordPress Theme (Default) - Uses site colors */
+.constitution-theme--classic {
+	--constitution-primary: var(--wp--preset--color--foreground, #1a1a1a);
+	--constitution-secondary: var(--wp--preset--color--secondary, #fff);
+	--constitution-accent: var(--wp--preset--color--primary, #003366);
+	--constitution-accent-hover: var(--wp--preset--color--primary-hover, #0055aa);
+	--constitution-toc-bg: transparent;
+	--constitution-preamble-bg: var(--wp--preset--color--background, #000);
+	--constitution-preamble-accent: var(--wp--preset--color--accent, #8b0000);
+}
+
+/* Patriotic Theme */
+.constitution-theme--patriotic {
+	--constitution-primary: #1a1a1a;
+	--constitution-secondary: #333;
+	--constitution-accent: #b22234;
+	--constitution-accent-hover: #d32f2f;
+	--constitution-toc-bg: #f0f4f8;
+	--constitution-preamble-bg: #fff9f9;
+	--constitution-preamble-accent: #003f87;
+}
+
+.constitution-theme--patriotic .constitution-progress__bar {
+	background: linear-gradient(90deg, #b22234 0%, #ffffff 50%, #003f87 100%);
+}
+
+.constitution-theme--patriotic .constitution-nav__link.active .constitution-nav__dot {
+	background-color: #b22234;
+	border-color: #b22234;
+}
+
+/* Modern Theme */
+.constitution-theme--modern {
+	--constitution-primary: #2c3e50;
+	--constitution-secondary: #7f8c8d;
+	--constitution-accent: #34495e;
+	--constitution-accent-hover: #2c3e50;
+	--constitution-toc-bg: #ecf0f1;
+	--constitution-preamble-bg: #f8f9fa;
+	--constitution-preamble-accent: #16a085;
+}
+
+.constitution-theme--modern .constitution-nav__link.active .constitution-nav__dot {
+	background-color: #16a085;
+	border-color: #16a085;
+}
+
+/* Sepia Theme */
+.constitution-theme--sepia {
+	--constitution-primary: #3d2817;
+	--constitution-secondary: #6b4e3d;
+	--constitution-accent: #8b4513;
+	--constitution-accent-hover: #a0522d;
+	--constitution-toc-bg: #f4f1e8;
+	--constitution-preamble-bg: #faf8f3;
+	--constitution-preamble-accent: #704214;
+	background-color: #fdfbf7;
+	color: #3d2817;
+}
+
+.constitution-theme--sepia .constitution-nav__dot {
+	background-color: rgba(61, 40, 23, 0.4);
+	border-color: rgba(61, 40, 23, 0.2);
+}
+
+.constitution-theme--sepia .constitution-nav__link:hover .constitution-nav__dot {
+	background-color: rgba(61, 40, 23, 0.7);
+}
+
+.constitution-theme--sepia .constitution-nav__link.active .constitution-nav__dot {
+	background-color: #8b4513;
+	border-color: #8b4513;
+}
+
+/* Dark Theme - White on Black */
+.constitution-theme--dark {
+	--constitution-primary: #ffffff;
+	--constitution-secondary: #cccccc;
+	--constitution-accent: #66b3ff;
+	--constitution-accent-hover: #4da6ff;
+	--constitution-toc-bg: #1a1a1a;
+	--constitution-preamble-bg: #0d0d0d;
+	--constitution-preamble-accent: #66b3ff;
+	background-color: transparent;
+	color: #ffffff;
+}
+
+.constitution-theme--dark .constitution-toc {
+	border-left-color: #66b3ff;
+}
+
+.constitution-theme--dark .constitution-preamble {
+	border-left-color: #66b3ff;
+}
+
+.constitution-theme--dark .constitution-nav__dot {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.constitution-theme--dark .constitution-nav__link:hover .constitution-nav__dot {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.constitution-theme--dark .constitution-nav__link.active .constitution-nav__dot {
+	background-color: #66b3ff;
+	border-color: #66b3ff;
+}
+
+.constitution-theme--dark .constitution-article,
+.constitution-theme--dark .constitution-amendment {
+	
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+
+@media (max-width: 1200px) {
+	
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+	.constitution-block {
+		padding: 1rem;
+	}
+	
+	.constitution-header h1 {
+		font-size: 2rem;
+	}
+	
+	.preamble-text {
+		
+	}
+	
+	/* Mobile navigation - keep dots visible but closer to edge */
+	
+	
+	.constitution-toc {
+		font-size: 0.9rem;
+		padding: 1rem;
+		font-family: 'Oswald', sans-serif;
+	}
+	
+	.constitution-article h3,
+	.constitution-amendment h4 {
+		font-size: 1.5rem;
+	}
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+	.constitution-nav,
+	.constitution-progress,
+	.constitution-nav__toggle {
+		display: none !important;
+	}
+	
+	.constitution-block {
+		max-width: 100%;
+		padding: 0;
+	}
+	
+	.constitution-toc {
+		page-break-after: always;
+	}
+	
+	.constitution-article,
+	.constitution-amendment {
+		page-break-inside: avoid;
+	}
+}

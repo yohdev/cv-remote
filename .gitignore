@@ -1,0 +1,25 @@
+# Uploads (media files — too large for git)
+wp-content/uploads/
+
+# Database files
+*.sql
+*.sqlite
+
+# WordPress core debug log
+wp-content/debug.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment / local config
+.env
+wp-config-local.php
+
+# Node / build artifacts
+node_modules/
+vendor/
+
+# Studio-specific
+wp-content/database/
+wp-content/mu-plugins/sqlite-database-integration/

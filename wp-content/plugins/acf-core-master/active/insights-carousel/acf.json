@@ -1,0 +1,42 @@
+[
+    {
+        "key": "group_ic_6a2b8d3f1e7",
+        "title": "Insights Carousel",
+        "fields": [
+            {
+                "key": "field_ic_post_count",
+                "label": "Number of Posts",
+                "name": "post_count",
+                "type": "number",
+                "instructions": "How many posts to display.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "30", "class": "", "id": "" },
+                "default_value": 3,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1,
+                "max": 12,
+                "step": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/insights-carousel"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Fields for the Insights Carousel block."
+    }
+]

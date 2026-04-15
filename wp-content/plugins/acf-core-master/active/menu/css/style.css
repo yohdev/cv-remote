@@ -1,0 +1,409 @@
+/* Screen Reader Text - ADA Compliance */
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Menu Block Container */
+.menu-block {
+	position: relative;
+	width: 100%;
+}
+
+/* Hamburger Button - Hidden on Desktop */
+.menu-toggle {
+	display: none;
+	position: relative;
+	background: #333;
+	border: none;
+	padding: 12px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+	z-index: 1000;
+	top:0;
+}
+
+.menu-toggle.active{
+	margin-top: -50px;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+	background: #555;
+	//outline: 2px solid #0073aa;
+	//outline-offset: 2px;
+}
+
+.menu-toggle:focus {
+	//outline: 2px solid #0073aa;
+}
+
+.hamburger-icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 24px;
+	height: 18px;
+}
+
+.hamburger-icon .line {
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+	border-radius: 2px;
+}
+
+/* Hamburger Animation when Active */
+.menu-toggle[aria-expanded="true"] .hamburger-icon .line:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-icon .line:nth-child(2) {
+	opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-icon .line:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menu Container */
+.menu-container {
+	width: auto;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Primary Menu Styles - Desktop */
+.primary-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.primary-menu > li {
+	position: relative;
+	margin: 0;
+	padding: 2px 10px 0 10px;
+	outline: none;
+	transition: all 0.5s;
+}
+.primary-menu > li:hover{
+}
+
+
+.primary-menu > li > a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	font-family: var(--wp--preset--font-family--futura-pt, "Futura PT");
+	padding: 0 0 0 0;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	position: relative;
+	transition: all 0.5s;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.primary-menu > li:hover{
+
+}
+
+.primary-menu > li:hover a{
+	color: var(--wp--preset--color--secondary);
+}
+
+.primary-menu > li > a:focus {
+	outline: 2px solid #0073aa;
+	outline-offset: -2px;
+}
+
+/* Current Menu Item */
+.primary-menu > li.current-menu-item {
+	color: var(--wp--preset--color--secondary) ;
+}
+
+.primary-menu > li.current-menu-item a{
+	color: var(--wp--preset--color--secondary) ;
+}
+
+.primary-menu > li.current-menu-item a .submenu-indicator svg{
+	fill: var(--wp--preset--color--secondary) ;
+}
+
+
+/* Submenu Indicator */
+
+.submenu-indicator{
+	top: 0;
+	display: inline-block;
+	position: relative;
+	rotate: 0;
+	left: 5px;
+	transition: all 0.5s;
+	width: 14px;
+}
+
+.submenu-indicator svg{
+	width: 14;
+	fill:#000;
+	rotate: 0;
+	transition: all 0.5s;
+}
+
+
+.primary-menu > li:hover a .submenu-indicator svg{
+	rotate:180deg;
+	fill: var(--wp--preset--color--secondary);
+}
+
+/* Submenu Styles - Desktop */
+.sub-menu {
+	list-style: none;
+	margin: 0;
+	padding: 25px 0 0 0;
+	position: absolute;
+	top: 95%;
+	margin-left: -50px;
+	min-width: 180px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: all 0.3s ease;
+	z-index: 999;
+	overflow: hidden;
+}
+
+.menu-item-has-children:hover > .sub-menu,
+.menu-item-has-children:focus-within > .sub-menu,
+.menu-item-has-children > a[aria-expanded="true"] + .sub-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.sub-menu li {
+	background-color: #000;
+	text-align: cemter;
+}
+
+.sub-menu li:last-child {
+	border-bottom: none;
+}
+
+.sub-menu a {
+	display: block;
+	padding: 20px 10px;
+	color: #ffff !important;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.sub-menu a:hover{
+	
+}
+
+.sub-menu a:hover,
+.sub-menu a:focus {
+	color: var(--wp--preset--color--custom-taco-shell-yellow);
+	outline: none;
+}
+
+.sub-menu a:focus {
+	
+}
+
+/* Nested Submenus */
+.sub-menu .sub-menu {
+	top: 0;
+	left: 100%;
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+
+	/* Show Hamburger Button */
+	.menu-toggle {
+		display: flex;
+		top: 65px;
+		right: 20px;
+		position: fixed;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0;
+		transition: all 0.3s;
+	}
+	
+	.primary-menu .menu-item:focus{
+		border: none !important;
+	}
+	
+	
+	.top-header.scrolled .menu-toggle {
+		top: 18px;
+	}
+	
+	.top-header.scrolled .menu-toggle.active {
+		top: 65px;
+	}
+
+	/* Hide Menu by Default on Mobile */
+	.menu-container {
+		position: fixed;
+		display: block;
+		top:80px;
+		left: 0;
+		right: 0;
+		width: 100%;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.5s ease;
+		z-index: 999;
+	}
+
+	/* Show Menu when Hamburger is Active */
+	.menu-container.active {
+		max-height: 2000px;
+		margin-top: 0;
+		padding-top: 70px;
+		background: var(--wp--preset--color--custom-purr-pink);
+		top:0px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.663);
+	}
+
+	/* Stack Menu Items Vertically */
+	.primary-menu {
+		flex-direction: column;
+		background: #fff;
+		border-radius: 4px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		overflow: hidden;
+		gap:0;
+	}
+
+	.primary-menu > li {
+		padding:0;
+		border-style: solid;
+		border-width: 0 0 1px 0;
+		border-color: #000;
+	}
+
+	.primary-menu > li:last-child {
+		border: 0;
+	}
+	
+	.primary-menu > li > a {
+		padding: 10px;
+		color: #000
+	}
+
+	.primary-menu > li > a:focus {
+		outline: none;
+	}
+	
+	
+	
+	.primary-menu > li.current-menu-item {
+		
+	}
+	
+	.primary-menu > li.current-menu-item a {
+		border: none;
+	}
+
+	/* Submenu on Mobile */
+	.sub-menu {
+		padding: 0 0 0 0;
+		position: static;
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+		box-shadow: none;
+		background: #f9f9f9;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease;
+		border-radius: 0;
+	}
+
+	.menu-item-has-children > a[aria-expanded="true"] + .sub-menu {
+		max-height: 1000px;
+		border-top: 1px solid #e0e0e0;
+	}
+
+	.sub-menu a {
+		padding-left: 40px;
+	}
+
+	.sub-menu a:hover,
+	.sub-menu a:focus {
+		padding-left: 45px;
+	}
+
+	.sub-menu .sub-menu a {
+		padding-left: 60px;
+	}
+
+	.sub-menu .sub-menu a:hover,
+	.sub-menu .sub-menu a:focus {
+		padding-left: 65px;
+	}
+
+	/* Rotate Submenu Indicator on Mobile */
+	.menu-item-has-children > a[aria-expanded="true"] .submenu-indicator::after {
+		transform: rotate(180deg);
+	}
+}
+
+/* Tablet Adjustments */
+@media (min-width: 1024px) and (max-width: 1024px) {
+	.primary-menu > li > a {
+		font-size: 14px;
+	}
+}
+
+/* Focus Visible for Better Keyboard Navigation */
+.primary-menu a:focus-visible,
+.menu-toggle:focus-visible {
+	//outline: 3px solid #0073aa;
+	//outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+	.primary-menu > li > a:focus,
+	.sub-menu a:focus {
+		outline-width: 3px;
+	}
+}
+
+/* Reduced Motion Support - ADA Compliance */
+@media (prefers-reduced-motion: reduce) {
+	.menu-toggle,
+	.hamburger-icon .line,
+	.menu-container,
+	.sub-menu,
+	.primary-menu a {
+		transition: none;
+	}
+}
+

@@ -1,0 +1,117 @@
+.insights-filter {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/* ── Filter Bar ── */
+.insights-filter__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.insights-filter__roles {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.insights-filter__roles-label {
+    font-size: 0.9375rem;
+    color: #4a5568;
+    margin-right: 0.25rem;
+}
+
+.insights-filter__role {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f1f6fb;
+    border: 1px solid #d4e0ed;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+}
+
+.insights-filter__role:hover {
+    border-color: #a0bdd8;
+}
+
+.insights-filter__role:has(.insights-filter__checkbox:checked) {
+    background-color: #e2edf6;
+    border-color: #1e3a5f;
+}
+
+.insights-filter__checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #1e3a5f;
+    cursor: pointer;
+    margin: 0;
+}
+
+.insights-filter__role-text {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #1e3a5f;
+    white-space: nowrap;
+}
+
+/* ── Search ── */
+.insights-filter__search-wrapper {
+    position: relative;
+    min-width: 200px;
+    max-width: 300px;
+    flex-shrink: 0;
+}
+
+.insights-filter__search-icon {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: #8896a6;
+    pointer-events: none;
+}
+
+.insights-filter__search {
+    width: 100%;
+    padding: 0.625rem 1rem 0.625rem 2.5rem;
+    border: 1px solid #d4e0ed;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    color: #1a1a2e;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.insights-filter__search:focus {
+    outline: none;
+    border-color: #1e3a5f;
+}
+
+.insights-filter__search::placeholder {
+    color: #8896a6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 781px) {
+    .insights-filter__bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .insights-filter__search-wrapper {
+        max-width: none;
+    }
+}

@@ -1,0 +1,87 @@
+
+.fixed-container{
+  overflow: hidden;
+  max-height:100vh;
+}
+
+.fixed-container-50{
+  overflow: hidden;
+  max-height:50vh;
+}
+
+
+.big-hover{
+  transition: transform 0.5s ease-out;
+}
+
+.big-hover:hover{
+  transform: scale(1.05) !important;
+}
+
+
+.fade-in-element {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-left.visible.big-hover:hover {
+  transform: translateX(0) scale(1.05);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right.visible.big-hover:hover {
+  transform: translateX(0) scale(1.05);
+}
+
+.fade-in-bottom {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in-bottom.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-bottom.visible.big-hover:hover {
+  transform: translateY(0) scale(1.05);
+}
+
+.top-logo.on-light svg{
+  fill: #a34c25;
+}
+
+.top-header.scrolled{
+    margin-top: -125px;
+}
+
+.top-nav.on-light ul li a{
+  background-color: #a34c25;
+  color: #fff;
+}

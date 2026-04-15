@@ -1,0 +1,160 @@
+[
+	{
+		"key": "group_constitution_block",
+		"title": "Constitution Block",
+		"fields": [
+			{
+				"key": "field_constitution_message",
+				"label": "Constitution Display Block",
+				"name": "",
+				"type": "message",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "",
+					"class": "gberg-label",
+					"id": ""
+				},
+				"message": "Display the complete U.S. Constitution",
+				"new_lines": "wpautop",
+				"esc_html": 0
+			},
+			{
+				"key": "field_constitution_display_style",
+				"label": "Display Style",
+				"name": "display_style",
+				"type": "select",
+				"instructions": "Choose how to display the Constitution",
+				"required": 0,
+				"choices": {
+					"full": "Full Constitution",
+					"articles": "Articles Only",
+					"amendments": "Amendments Only",
+					"collapsible": "Collapsible Sections"
+				},
+				"default_value": "full",
+				"allow_null": 0,
+				"multiple": 0
+			},
+			{
+				"key": "field_constitution_show_toc",
+				"label": "Show Table of Contents",
+				"name": "show_toc",
+				"type": "true_false",
+				"instructions": "Display a clickable table of contents at the top",
+				"required": 0,
+				"default_value": 1,
+				"ui": 1
+			},
+			{
+				"key": "field_constitution_show_navigation",
+				"label": "Show Fixed Navigation",
+				"name": "show_navigation",
+				"type": "true_false",
+				"instructions": "Display fixed dot navigation on the side",
+				"required": 0,
+				"default_value": 1,
+				"ui": 1
+			},
+			{
+				"key": "field_constitution_nav_position",
+				"label": "Navigation Position",
+				"name": "nav_position",
+				"type": "select",
+				"instructions": "Choose where to display the navigation",
+				"required": 0,
+				"conditional_logic": [
+					[
+						{
+							"field": "field_constitution_show_navigation",
+							"operator": "==",
+							"value": "1"
+						}
+					]
+				],
+				"choices": {
+					"right": "Right Side",
+					"left": "Left Side"
+				},
+				"default_value": "right",
+				"allow_null": 0,
+				"multiple": 0
+			},
+			{
+				"key": "field_constitution_show_progress",
+				"label": "Show Progress Indicator",
+				"name": "show_progress",
+				"type": "true_false",
+				"instructions": "Display reading progress bar at the top",
+				"required": 0,
+				"default_value": 1,
+				"ui": 1
+			},
+			{
+				"key": "field_constitution_nav_collapsible",
+				"label": "Collapsible Navigation",
+				"name": "nav_collapsible",
+				"type": "true_false",
+				"instructions": "Allow users to collapse/expand the navigation",
+				"required": 0,
+				"conditional_logic": [
+					[
+						{
+							"field": "field_constitution_show_navigation",
+							"operator": "==",
+							"value": "1"
+						}
+					]
+				],
+				"default_value": 1,
+				"ui": 1
+			},
+			{
+				"key": "field_constitution_theme",
+				"label": "Color Theme",
+				"name": "color_theme",
+				"type": "select",
+				"instructions": "Choose a color scheme",
+				"required": 0,
+				"choices": {
+					"classic": "WordPress Theme (Uses Site Colors)",
+					"patriotic": "Patriotic (Red, White, Blue)",
+					"modern": "Modern (Gray)",
+					"sepia": "Sepia (Historical)",
+					"dark": "Dark (White on Black)"
+				},
+				"default_value": "classic",
+				"allow_null": 0,
+				"multiple": 0
+			},
+			{
+				"key": "field_constitution_source",
+				"label": "Source Attribution",
+				"name": "show_source",
+				"type": "true_false",
+				"instructions": "Show source link at the bottom",
+				"required": 0,
+				"default_value": 1,
+				"ui": 1
+			}
+		],
+		"location": [
+			[
+				{
+					"param": "block",
+					"operator": "==",
+					"value": "acf\/constitution-block"
+				}
+			]
+		],
+		"menu_order": 0,
+		"position": "normal",
+		"style": "default",
+		"label_placement": "top",
+		"instruction_placement": "label",
+		"hide_on_screen": "",
+		"active": true,
+		"description": "Display the U.S. Constitution"
+	}
+]

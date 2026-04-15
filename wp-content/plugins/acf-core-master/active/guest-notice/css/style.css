@@ -1,0 +1,33 @@
+.guest-notice {
+	width: 100%;
+	max-width: unset !important;
+	box-sizing: border-box;
+}
+.guest-notice__content {
+	width: 100%;
+}
+.guest-notice__content .block-editor-inner-blocks {
+	position: relative;
+	clear: both;
+	width: 100% !important;
+}
+
+/* Editor-only label */
+.guest-notice--editor {
+	position: relative;
+	border: 2px dashed #e0a800;
+	border-radius: 5px;
+	padding: 10px;
+}
+.guest-notice__label {
+	display: inline-block;
+	background: #e0a800;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 3px 8px;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}

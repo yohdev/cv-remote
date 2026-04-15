@@ -1,0 +1,19 @@
+.linked-content {
+    display: block;
+}
+
+.linked-content__link {
+    display: block;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.linked-content__link > * {
+    display: block;
+}
+
+.linked-content__link:hover {
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}

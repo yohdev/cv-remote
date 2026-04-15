@@ -1,0 +1,310 @@
+/* ==========================================================================
+   Team Members Block
+   ========================================================================== */
+
+/* Grid */
+
+
+/* Card */
+.team-members__card {
+    background: #ffffff;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Photo */
+.team-members__photo-wrap {
+    width: 100%;
+    padding: 1.25rem 1.25rem 0;
+    box-sizing: border-box;
+}
+
+.team-members__photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 0.5rem;
+}
+
+/* Info */
+.team-members__info {
+    padding: 1.25rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.team-members__info p{
+   text-align: center;
+}
+
+.team-members__name {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0;
+    color: #0d1b2a;
+}
+
+.team-members__credentials {
+    font-size: 16px;
+    color: #5a6a7a;
+    margin: 0;
+}
+
+.team-members__role {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0d1b2a;
+    margin: 0 0 0.5rem;
+}
+
+.team-members__bio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--wp--preset--color--action-base);
+    cursor: pointer;
+    margin-top: auto;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.team-members__bio-btn svg{
+   display: inline-block;
+   position: relative;
+   top:2px;
+}
+
+.team-members__bio-btn:hover,
+.team-members__bio-btn:focus-visible {
+    color: #1040b0;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+
+.team-members__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.team-members__modal[hidden] {
+    display: none;
+}
+
+.team-members__modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 27, 42, 0.6);
+    cursor: pointer;
+}
+
+.team-members__modal-inner {
+    position: relative;
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+    width: 100%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.team-members__modal-body {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Modal close */
+.team-members__modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #5a6a7a;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease, background 0.15s ease;
+    z-index: 2;
+}
+
+.team-members__modal-close:hover,
+.team-members__modal-close:focus-visible {
+    color: #0d1b2a;
+    background: #f0f2f5;
+}
+
+/* Modal header */
+.team-members__modal-header {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 5vw 70px 5vw;
+    gap: 1.25rem;
+    width: 30%;
+    background-color: #F1F6FB;
+}
+
+.team-members__modal-photo {
+    width: 100%;
+    max-height: 30vw;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+}
+
+.team-members__modal-photo[src=""] {
+    display: none;
+}
+
+.team-members__modal-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 0.25rem;
+}
+
+.team-members__modal-name {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #0d1b2a;
+    margin: 0;
+    font-family: var(--wp--preset--font-family--cambo);
+    font-size: 36px;
+}
+
+.team-members__modal-credentials {
+    font-size: 0.875rem;
+    color: #5a6a7a;
+    margin: 0;
+}
+
+.team-members__modal-role {
+    font-size: 0.9375rem;
+    color: #0d1b2a;
+    margin: 0;
+}
+
+/* Modal bio wrap */
+.team-members__modal-bio-wrap {
+    width: 70%;
+    padding: 70px;
+}
+
+/* Modal bio */
+.team-members__modal-bio {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #3a4a5a;
+}
+
+.team-members__modal-bio p {
+    margin: 0 0 1em;
+    font-size: 18px;
+}
+
+.team-members__modal-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* Social Links */
+
+.team-members__modal-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.team-members__modal-social:empty {
+    display: none;
+}
+
+.team-members__modal-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border: 1px solid #dce3eb;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    color: #0d1b2a;
+    font-size: 0.9375rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.team-members__modal-social-link:hover {
+    background: #f1f6fb;
+    border-color: #b0bec5;
+}
+
+.team-members__modal-social-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #5a6a7a;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 781px) {
+   .team-members__modal-body {
+       display: flex;
+       flex-direction: column;
+       box-sizing: border-box;
+       
+   }
+   
+   .team-members__modal-header{
+      width: calc(100% - 40px);
+      padding: 20px;
+   }
+   
+   .team-members__modal-photo {
+      display: flex;
+      position: relative;
+      margin: 0 auto;
+      width: 240px;
+      height: 240px;
+      max-height: unset; 
+   }
+   
+   .team-members__modal-bio-wrap{
+      width: calc(100% - 40px);
+      padding: 20px;
+   }
+   
+      .team-members__card {
+         max-width: 280px;
+         margin: 0 auto 0 auto;
+      }   
+   }
+
+

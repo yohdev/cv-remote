@@ -1,0 +1,529 @@
+.audio-btn{
+	display: flex;
+	margin: 0 auto 1.25em auto;
+	align-items: center;
+	position: relative;
+	border-style:solid;
+	border-width:1px;
+	border-color:#333;
+	background-color:#252525;
+	text-transform:uppercase;
+	font-size:10px;
+	height: 40px;
+	letter-spacing:0.1em;
+	cursor:pointer;
+	width: calc(100% - 2px);
+	clear: both;
+	transition: all 0.5s;
+	color: #efefef;
+	box-shadow: none;
+	line-height: 1.1em;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	border-radius: 6px;
+}
+
+/* Only apply hover on devices that support it (not touch devices) */
+@media (hover: hover) and (pointer: fine) {
+	.audio-btn:hover{
+		background-color: #323232;
+	}
+}
+
+/* For touch devices, use active state instead */
+@media (hover: none) and (pointer: coarse) {
+	.audio-btn:active{
+		background-color: #323232;
+	}
+}
+
+.play_audio.audio-btn svg{
+	display: inline-block;
+	position: relative;
+	width: 26px;
+	height: 26px;
+	margin-right: 8px;
+	top: 0;
+	fill:#efefef;
+}
+
+.audio-btn.active{
+	background-color: #333;
+	color: #fff;
+}
+
+.play_audio.audio-btn.active svg{
+	fill:#fff;
+}
+
+
+.audio-play-btn {
+	width: 25%;
+	height: auto;
+	box-shadow: 0px 0px 10px black;
+	border-radius: 50%;
+	transition: all 0.5s;
+	opacity: 0.3;
+}
+
+/* Image audio button fixes for Safari */
+.image-audio-btn {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	cursor: pointer;
+}
+
+/* Hover effects only for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+	.image-audio-btn:hover .audio-play-btn {
+		opacity: 0.8;
+	}
+}
+
+/* Active state for touch devices */
+@media (hover: none) and (pointer: coarse) {
+	.image-audio-btn:active .audio-play-btn {
+		opacity: 0.8;
+	}
+}
+
+.audio-btn-title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 10px;
+	width: calc(100% - 40px);
+}
+
+.btn-title{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	width: 100%;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+}
+
+
+
+/* Audio Footer Stuff */
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	 -khtml-user-select: none; /* Konqueror HTML */
+	   -moz-user-select: none; /* Old versions of Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+			user-select: none; /* Non-prefixed version, currently
+								  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+.audio_footer{
+	display:block;
+	position:fixed;
+	bottom:-200px;
+	width:100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s;
+	z-index: -1;
+}
+
+.audio_footer.show{
+	bottom:40px;
+	opacity: 1;
+	visibility: visible;
+	z-index: 9999;
+}
+	
+
+.audio-box{
+	display:block;
+	position:relative;
+	margin: 0 auto;
+	max-width:860px;
+	width: calc(100% - 40px);
+}
+
+.audio-controls{
+	width:auto;
+	height: auto;
+	padding: 5px 5px 0 5px;
+	background-color:#000;
+	display:flex;
+	justify-content:space-around;
+	align-items: center;
+	position: absolute;
+	right:0px;
+	top:-32px;
+	border-radius:6px 6px 0 0;
+	color:#fff;
+	gap: 5px;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.audio-controls svg{
+	width: 28px;
+	height:28px;
+	text-align: center;
+	border-radius: 3px;
+	fill: #efefef;
+	transition: all 0.5s;
+}
+
+.audio-controls svg:hover{
+	background-color: #323232;
+}
+
+/* Duplicate rule removed - see line 135 */
+
+.mini-audio-btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color:#fff;
+	position: fixed;
+	bottom:30px !important;
+	right:-40px;
+	background-color:#000;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	transition:all 1s;
+}
+
+.mini-audio-btn svg{
+	padding: 5px;
+	fill:#fff;
+	width: 32px;
+	height: 32px;
+}
+
+.mini-audio-btn:hover{
+	background-color: #666;
+}
+
+.mini-audio-btn .material-icons{
+	font-size: 16px;
+}
+
+.mini-audio-btn.show{
+	 right:20px;
+	 display:flex !important;
+}
+
+
+.playlist{
+	margin-top: 20px;
+	 border-style:solid;
+	border-width:0 0 1px 0;
+	border-color:#333;
+}
+	
+	
+	.audio_footer{
+		display:block;
+		position:fixed;
+		bottom:-95px;
+		width:100%;
+		transition: all 1s;
+	}
+	
+	.audio-box{
+		display:block;
+		position:relative;
+		margin: 0 auto;
+		max-width:860px;
+		width: calc(100% - 40px);
+	}
+	
+	.audio-controls .material-icons{
+		font-size: 18px;
+		cursor: pointer;
+		border-radius: 3px;
+		width: 40px;
+		text-align: center;
+		transition: all 0.5s;
+		margin: 5px;
+	}
+	
+	.audio-controls .material-icons:hover{
+		background-color: #595959;
+	}
+	
+	
+	.mini-audio-btn{
+		display: flex;
+		position: fixed;
+		align-items: center;
+		justify-content: center;
+		color:#fff;
+		position: fixed;
+		bottom:40px;
+		right:-40px;
+		background-color:#000;
+		width:30px;
+		height:30px;
+		border-radius:50%;
+		-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+		transition:all 1s;
+		z-index: 99999;
+	}
+	
+	.mini-audio-btn:hover{
+		background-color: #666;
+	}
+	
+	.mini-audio-btn .material-icons{
+		font-size: 16px;
+		cursor: pointer;
+	}
+	
+	.mini-audio-btn.show{
+		 right:20px;
+		 display:flex !important;
+	}	
+	
+	
+	.plyr--audio .plyr__controls{
+	border-radius:6px 0 6px 6px;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	background-color:#000;
+	width: 100%;
+	}
+	
+	.plyr__controls__item.plyr__menu{
+		display:none;
+	}
+	
+	
+	.plyr__controls__item.plyr__volume{
+		display:none !important;
+	}
+	
+	.plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true]{
+		background: #595959;
+	}
+	
+	.plyr__time{color:#fff;font-family: 'Lato', sans-serif; font-weight: 700;}
+	.plyr__control{color:#fff;}
+	.plyr__progress {font-family: 'Lato', sans-serif; font-weight: 700;}
+	.plyr--full-ui input[type=range]{
+		color: #ff0000 !important;
+	}
+	
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+	
+	.audio-playlist-player {
+		font-family: 'Open Sans', sans-serif;
+		background-color: #000;
+		border-radius: 10px;
+	}
+	
+	.playlist-player-wrapper {
+		padding: 20px;
+		background: #000;
+		border-radius: 10px 10px 0 0;
+		color: #fff;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		font-size: 14px;
+		font-family: 'Open Sans', sans-serif;
+		border-style: solid;
+		border-width: 1px 1px 0 1px;
+		border-color: #3a3a3a;
+	}
+	
+	.current-track-title{
+		border-radius: 6px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 5px;
+		background-color: #292929;
+		//box-shadow: inset 0 0 10px 0 #000;
+		border-style: solid;
+		border-width: 1px;
+		border-color: rgba(88, 88, 88, 1);
+	}
+	
+	.playlist-current-track {
+		font-weight: normal;
+		text-align: center;
+		line-height: 1.25em;
+		color: #fff;
+		font-size: 12px;
+		font-family: 'Open Sans', sans-serif;
+		padding: 5px;
+	}
+	
+	.playlist-title{
+		font-size: 14px;
+		line-height: 1.25em;
+	}
+	
+	.playlist-controls {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 15px;
+	}
+	
+	.playlist-play-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		padding: 5px;
+		background: #333;
+		color: white;
+		border: none;
+		border-radius: 25px;
+		cursor: pointer;
+		font-size: 16px;
+		transition: background 0.3s;
+		border-style: solid;
+		border-width: 2px;
+		border-color: rgba(255, 255, 255, 0.24);
+	}
+	
+	.playlist-play-btn:hover {
+		background: #555;
+	}
+	
+	.playlist-play-btn svg {
+		fill: white;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+	}
+	
+	.playlist-list {
+		background: #000;
+		border: 1px solid #3a3a3a;
+		border-radius: 0 0 10px 10px;
+		padding: 0;
+		max-height: 400px;
+		overflow-y: auto;
+		color: #efefef;
+		font-family: 'Open Sans', sans-serif;
+	}
+	
+	.playlist-item {
+		padding: 12px 15px;
+		cursor: pointer;
+		border-bottom: 1px solid #3a3a3a;
+		transition: background 0.2s;
+		display: flex;
+		align-items: center;
+		gap: 0;
+		background-color: #000;
+		font-family: 'Open Sans', sans-serif;
+	}
+	
+	/* Hover works on desktop */
+	.playlist-item:hover {
+		background: #363636;
+		color: #fff;
+	}
+	
+	/* Remove it on touch devices */
+	@media (hover: none) and (pointer: coarse) {
+		.playlist-item:hover {
+			background: unset;
+			color: unset;
+		}
+	}
+	
+	.playlist-item.active {
+		background: #264c71;
+		color: #fff;
+		font-weight: 600;
+	}
+	
+	.playlist-item:last-child {
+		border-bottom: none;
+	}
+	
+	.playlist-number {
+		opacity: 1;
+		min-width: 25px;
+		color: #fff;
+		font-size: 14px;
+	}
+	
+	.playlist-title {
+		flex: 1;
+	}
+	
+	/* Autoplay Toggle Styles */
+	.playlist-autoplay-toggle {
+		display: flex;
+		align-items: center;
+		margin-left: 20px;
+	}
+	
+	.playlist-autoplay-toggle label {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		user-select: none;
+		position: relative;
+	}
+	
+	.playlist-autoplay-toggle span:first-child {
+		margin-right: 10px;
+		font-size: 10px;
+		text-transform: uppercase;
+		font-weight: 700;
+		color: #fff;
+		font-family: 'Open Sans', sans-serif;
+	}
+	
+	.playlist-autoplay-toggle input[type="checkbox"] {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+	
+	.toggle-slider {
+		position: relative;
+		width: 44px;
+		height: 24px;
+		background-color: #ccc;
+		border-radius: 24px;
+		transition: background-color 0.3s;
+	}
+	
+	.toggle-slider::before {
+		content: "";
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background-color: white;
+		top: 3px;
+		left: 3px;
+		transition: transform 0.3s;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	}
+	
+	.playlist-autoplay-toggle input[type="checkbox"]:checked + .toggle-slider {
+		background-color: #336699;
+	}
+	
+	.playlist-autoplay-toggle input[type="checkbox"]:checked + .toggle-slider::before {
+		transform: translateX(20px);
+	}

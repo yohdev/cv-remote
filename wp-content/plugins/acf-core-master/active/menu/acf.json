@@ -1,0 +1,47 @@
+[
+    {
+        "key": "group_menu_block",
+        "title": "Menu Block",
+        "fields": [
+            {
+                "key": "field_menu_select",
+                "label": "Select Menu",
+                "name": "menu_select",
+                "type": "select",
+                "instructions": "Choose which WordPress menu to display",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {},
+                "default_value": false,
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": "Select a menu..."
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/menu"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

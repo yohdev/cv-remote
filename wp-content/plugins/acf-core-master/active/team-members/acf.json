@@ -1,0 +1,165 @@
+[
+    {
+        "key": "group_tm_9c4e2b81d7f",
+        "title": "Team Members",
+        "fields": [
+            {
+                "key": "field_tm_members_rep",
+                "label": "Team Members",
+                "name": "team_members",
+                "type": "repeater",
+                "instructions": "Add each team member. Each card will include a bio modal.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "collapsed": "field_tm_name",
+                "min": 1,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add Team Member",
+                "sub_fields": [
+                    {
+                        "key": "field_tm_photo",
+                        "label": "Photo",
+                        "name": "photo",
+                        "type": "image",
+                        "instructions": "Headshot or professional photo. Square or portrait images work best.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_tm_name",
+                        "label": "Name",
+                        "name": "name",
+                        "type": "text",
+                        "instructions": "Full name of the team member.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "default_value": "",
+                        "placeholder": "Jane Smith",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_tm_credentials",
+                        "label": "Credentials",
+                        "name": "credentials",
+                        "type": "text",
+                        "instructions": "Professional credentials (e.g. MD, FACC, FHRS).",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "default_value": "",
+                        "placeholder": "MD, FACC",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_tm_role",
+                        "label": "Role / Title",
+                        "name": "role",
+                        "type": "text",
+                        "instructions": "Job title or role (e.g. CEO, Co-founder).",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "default_value": "",
+                        "placeholder": "CEO",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_tm_social_links",
+                        "label": "Social Links",
+                        "name": "social_links",
+                        "type": "repeater",
+                        "instructions": "Add links to social media profiles.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "layout": "block",
+                        "button_label": "Add Social Link",
+                        "min": 0,
+                        "max": 0,
+                        "sub_fields": [
+                            {
+                                "key": "field_tm_social_url",
+                                "label": "URL",
+                                "name": "social_url",
+                                "type": "url",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": "",
+                                "placeholder": "e.g. https://linkedin.com/in/janedoe"
+                            },
+                            {
+                                "key": "field_tm_social_label",
+                                "label": "Label",
+                                "name": "social_label",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": "",
+                                "placeholder": "e.g. LinkedIn",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            }
+                        ]
+                    },
+                    {
+                        "key": "field_tm_bio",
+                        "label": "Bio",
+                        "name": "bio",
+                        "type": "textarea",
+                        "instructions": "Full biography shown in the modal when 'View bio' is clicked.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 6,
+                        "new_lines": "wpautop"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/team-members"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Fields for the Team Members block."
+    }
+]
