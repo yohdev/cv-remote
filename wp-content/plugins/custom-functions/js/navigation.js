@@ -70,4 +70,47 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	initMobileAccordion();
+
+	// ── Inject header logo into mobile overlay ──
+	function initMobileOverlayLogo() {
+		const observer = new MutationObserver(function () {
+			const overlay = document.querySelector(
+				'.wp-block-navigation__responsive-container.is-menu-open'
+			);
+			if (!overlay) return;
+
+			// Don't inject twice
+			if (overlay.querySelector('.mobile-nav-logo')) return;
+
+			const headerLogo = document.querySelector('.top-logo img');
+			if (!headerLogo) return;
+
+			const logoWrapper = document.createElement('div');
+			logoWrapper.className = 'mobile-nav-logo';
+
+			const logoLink = document.createElement('a');
+			logoLink.href = '/';
+			logoLink.setAttribute('aria-label', 'Home');
+
+			const logoImg = headerLogo.cloneNode(true);
+			logoLink.appendChild(logoImg);
+			logoWrapper.appendChild(logoLink);
+
+			const content = overlay.querySelector(
+				'.wp-block-navigation__responsive-container-content'
+			);
+			if (content) {
+				content.insertBefore(logoWrapper, content.firstChild);
+			}
+		});
+
+		observer.observe(document.body, {
+			childList: true,
+			subtree: true,
+			attributes: true,
+			attributeFilter: ['class'],
+		});
+	}
+
+	initMobileOverlayLogo();
 });
