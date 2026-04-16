@@ -875,8 +875,14 @@ footer .gform_confirmation_message_3{
     }
 }
 
+.mobile-nav-logo{
+  display: none;
+}
 /* Mobile: add padding so first/last items breathe */
 @media (max-width: 781px) {
+  
+  
+  
     .blog-nav {
         padding-left: 20px !important;
         padding-right: 20px !important;
