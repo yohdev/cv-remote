@@ -39,9 +39,10 @@ advanced-custom-fields-pro, gravityforms, gravityformsmailgun, gravitysmtp, inte
 
 | Type | Slug | Registered In | Notes |
 |------|------|--------------|-------|
-| Testimonial | `testimonial` | custom-functions | Has meta: `testimonial_company`, `testimonial_position`. Used by testimonial-card, testimonials-carousel, large-testimonial-slider blocks |
+| Testimonial | `testimonial` | custom-functions | Has meta: `testimonial_company`, `testimonial_position`. Has taxonomy: `testimonial_category`. Used by testimonial-card, testimonials-carousel, large-testimonial-slider blocks |
 | Careers | `careers` | custom-functions | Has taxonomy: `career_category`. Used by careers-block |
 | Role | `role` (taxonomy) | custom-functions | On posts. Filters blog via insights-filter block. Default terms: Physician, Administrator, Device Clinician |
+| Testimonial Category | `testimonial_category` (taxonomy) | custom-functions | On testimonials. Hierarchical. Used to categorize testimonials |
 
 ## ACF Block System (acf-core-master)
 
@@ -83,7 +84,8 @@ acf-core-master/active/{block-name}/
 | Constitution | `constitution_block` | U.S. Constitution display with navigation |
 | Copy Link | `copy-permalink` | Button that copies post permalink to clipboard |
 | Dot Navigation | `navigation_dots` | Fixed vertical dot nav for page sections |
-| FAQ | `faq` | Expandable Q&A pairs |
+| FAQ | `faq` | Expandable Q&A pairs with FAQPage schema.org markup |
+| Featured Insights | `featured-insights` | Curated featured blog posts display |
 | Gallery | `gallery_block` | Slideshow with Fancybox lightbox |
 | Guest Notice | `guest-notice` | Content visible only to logged-out users |
 | Image Uploader | `image_upload` | General-purpose image upload |

@@ -93,10 +93,56 @@
    }
   }
   
+  
+  .orange-accent-col-left, .orange-accent-col-right{
+    display: block;
+    position: relative;
+  }
  
  .orange-curve p{
    color: #fff !important;
    line-height: 1em;
+ }
+ 
+ @media (max-width: 781px) {
+   
+      .orange-accent-col-left{
+        left: 20px;
+      }
+   
+      .orange-accent-col-left .orange-curve{
+        display: block;
+        position: absolute;
+        z-index: 999;
+        width: 160px !important;
+        height: 150px !important;
+        bottom: -20px;
+        left: -40px;
+        min-height: unset !important;
+        padding-top: 30px !important;
+        padding-right:25px !important;
+        padding-bottom: 0 !important;
+        padding-left: 0 !important
+    }
+    
+    .orange-accent-col-right{
+      left: -20px;
+    }
+    
+    .orange-accent-col-right .orange-curve{
+      display: block;
+      position: absolute;
+      z-index: 999;
+      width: 160px !important;
+      height: 150px !important;
+      min-height: unset !important;
+      padding-top: 30px !important;
+      padding-right:25px !important;
+      padding-bottom: 0 !important;
+      padding-left: 0 !important;
+      bottom: -20px;
+      right: -40px !important;
+    }
  }
  
  .overlap-container{
@@ -786,4 +832,62 @@ footer .gform_confirmation_message_3{
 .gform_wrapper .gform_button:hover {
     background-color:var(--wp--preset--color--accent) !important;
     color: var(--wp--preset--color--white) !important;
+}
+
+
+/* Blog Nav Container */
+.blog-nav {
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.blog-nav::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Keep items on one line */
+.blog-nav .insights-nav,
+.blog-nav .wp-block-categories-list {
+    flex-wrap: nowrap !important;
+    white-space: nowrap;
+}
+
+.blog-nav .wp-block-categories-list {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap !important;
+}
+
+/* Desktop: center the nav */
+@media (min-width: 782px) {
+    .blog-nav {
+        justify-content: center !important;
+        overflow-x: visible;
+    }
+}
+
+/* Mobile: add padding so first/last items breathe */
+@media (max-width: 781px) {
+    .blog-nav {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    /* Ensure the last item has trailing space */
+    .blog-nav .wp-block-categories-list li:last-child {
+        padding-right: 20px;
+    }
+
+    .blog-nav .wp-block-navigation__container li:last-child {
+        padding-right: 20px;
+    }
 }

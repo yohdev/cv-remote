@@ -1,0 +1,72 @@
+[
+    {
+        "key": "group_faq_7d3a1c92e4b",
+        "title": "FAQ",
+        "fields": [
+            {
+                "key": "field_faq_items_rep",
+                "label": "FAQ Items",
+                "name": "faq_items",
+                "type": "repeater",
+                "instructions": "Add each question and answer pair.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "collapsed": "field_faq_question",
+                "min": 1,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add FAQ Item",
+                "sub_fields": [
+                    {
+                        "key": "field_faq_question",
+                        "label": "Question",
+                        "name": "question",
+                        "type": "text",
+                        "instructions": "The FAQ question.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "default_value": "",
+                        "placeholder": "How does your team work with us?",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_faq_answer",
+                        "label": "Answer",
+                        "name": "answer",
+                        "type": "textarea",
+                        "instructions": "The answer to the question. Basic formatting is supported.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": { "width": "", "class": "", "id": "" },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 5,
+                        "new_lines": "wpautop"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/faq"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Fields for the FAQ block."
+    }
+]
