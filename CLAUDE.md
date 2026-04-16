@@ -135,6 +135,30 @@ The plugin-injected palette is what renders on the frontend. Use CSS custom prop
 - **Google Ads Conversion ID:** `wp_options` key `custom_functions_gads_id` — same settings page
 - **Design Variables:** Appearance → Design Variables — read-only reference of active theme.json values
 
+## CI/CD Pipeline (GitHub Actions)
+
+The repo has a single workflow (`.github/workflows/security-scan.yml`) with **four parallel jobs**:
+
+| Job | Script | What It Does |
+|-----|--------|-------------|
+| **PHPCS Security Audit** | inline | Runs WordPress-Extra standard against custom code, annotates PRs |
+| **Plugin & Theme Version Check** | `.github/scripts/check-versions.py` | Reads `plugins.yml`, checks WordPress.org for outdated versions, checks Wordfence for CVEs |
+| **accessiBe Accessibility Scan** | `.github/scripts/accessibe-scan.py` | Triggers accessFlow API to scan pages from `lighthouse-pages.yml`, reports WCAG violations (warning only, non-blocking) |
+| **Lighthouse Performance Audit** | `.github/scripts/lighthouse-audit.py` | Runs PageSpeed Insights on pages from `lighthouse-pages.yml`, checks scores against thresholds |
+
+### Required GitHub Secrets
+
+| Secret | Used By |
+|--------|---------|
+| `WORDFENCE_API_TOKEN` | Version check — Wordfence Intelligence vulnerability lookups |
+| `PAGESPEED_API_KEY` | Lighthouse — Google PageSpeed Insights API |
+| `ACCESSIBE_API_TOKEN` | accessiBe — accessFlow v3 API for accessibility scanning |
+
+### Config Files
+
+- **`plugins.yml`** — Third-party plugin/theme version manifest (manual version bumps)
+- **`lighthouse-pages.yml`** — Shared page list + score thresholds used by both Lighthouse and accessiBe jobs
+
 ## File Paths That Matter
 
 ```
