@@ -49,15 +49,12 @@
     flex-shrink: 0;
     width: 2.25rem;
     height: 2.25rem;
-    min-width: 2.25rem;
-    min-height: 2.25rem;
     border-radius: 50%;
     background: #1a3a6b;
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     transition: background 0.2s ease;
 }
 
@@ -69,10 +66,6 @@
 .faq__icon-svg {
     width: 1rem;
     height: 1rem;
-    min-width: 1rem;
-    min-height: 1rem;
-    max-width: 1rem;
-    max-height: 1rem;
     display: block;
 }
 

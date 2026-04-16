@@ -2,8 +2,7 @@
     'use strict';
 
     function initCarousel(carousel) {
-        var track        = carousel.querySelector('.testimonials-carousel__track');
-        var trackWrapper = carousel.querySelector('.testimonials-carousel__track-wrapper');
+        var track     = carousel.querySelector('.testimonials-carousel__track');
         if (!track) return;
 
         var realSlides = Array.from(track.querySelectorAll('.testimonials-carousel__slide'));
@@ -51,15 +50,6 @@
             if (counterEl) counterEl.textContent = realIndex + 1;
         }
 
-        function syncHeight() {
-            if (!trackWrapper) return;
-            var allSlides = track.querySelectorAll('.testimonials-carousel__slide');
-            var active = allSlides[current];
-            if (active) {
-                trackWrapper.style.height = active.offsetHeight + 'px';
-            }
-        }
-
         function goTo(index) {
             if (isMoving) return;
             isMoving = true;
@@ -67,7 +57,6 @@
             track.style.transition = 'transform 0.4s ease';
             setPosition(current);
             updateCounter();
-            syncHeight();
         }
 
         function next() { goTo(current + 1); }
@@ -89,13 +78,10 @@
 
             if (needsSnap) {
                 track.style.transition = 'none';
-                trackWrapper.style.transition = 'none';
                 setPosition(current);
-                syncHeight();
                 requestAnimationFrame(function () {
                     requestAnimationFrame(function () {
                         track.style.transition = 'transform 0.4s ease';
-                        trackWrapper.style.transition = 'height 0.4s ease';
                         isMoving = false;
                     });
                 });
@@ -132,13 +118,10 @@
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
                 track.style.transition = 'none';
-                trackWrapper.style.transition = 'none';
                 setPosition(current);
-                syncHeight();
                 requestAnimationFrame(function () {
                     requestAnimationFrame(function () {
                         track.style.transition = 'transform 0.4s ease';
-                        trackWrapper.style.transition = 'height 0.4s ease';
                     });
                 });
             }, 100);
@@ -146,13 +129,10 @@
 
         // ── Initial position (no animation) ─────────────────────
         track.style.transition = 'none';
-        trackWrapper.style.transition = 'none';
         setPosition(current);
-        syncHeight();
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
                 track.style.transition = 'transform 0.4s ease';
-                trackWrapper.style.transition = 'height 0.4s ease';
             });
         });
         updateCounter();
