@@ -220,6 +220,29 @@ add_action( 'init', function() {
 		'supports'     => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
 		'menu_icon'    => 'dashicons-format-quote',
 		'rewrite'      => [ 'slug' => 'testimonials' ],
+		'taxonomies'   => [ 'testimonial_category' ],
+	] );
+
+	register_taxonomy( 'testimonial_category', 'testimonial', [
+		'labels' => [
+			'name'              => 'Testimonial Categories',
+			'singular_name'     => 'Testimonial Category',
+			'search_items'      => 'Search Testimonial Categories',
+			'all_items'         => 'All Testimonial Categories',
+			'parent_item'       => 'Parent Testimonial Category',
+			'parent_item_colon' => 'Parent Testimonial Category:',
+			'edit_item'         => 'Edit Testimonial Category',
+			'update_item'       => 'Update Testimonial Category',
+			'add_new_item'      => 'Add New Testimonial Category',
+			'new_item_name'     => 'New Testimonial Category Name',
+			'menu_name'         => 'Categories',
+		],
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_rest'      => true,
+		'rewrite'           => [ 'slug' => 'testimonial-category' ],
 	] );
 
 	register_post_meta( 'testimonial', 'testimonial_company', [
