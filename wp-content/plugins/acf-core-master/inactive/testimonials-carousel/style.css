@@ -10,12 +10,10 @@
 .testimonials-carousel__track-wrapper {
     overflow: hidden;
     width: 100%;
-    transition: height 0.4s ease;
 }
 
 .testimonials-carousel__track {
     display: flex;
-    align-items: flex-start;
     transition: transform 0.4s ease;
     will-change: transform;
 }

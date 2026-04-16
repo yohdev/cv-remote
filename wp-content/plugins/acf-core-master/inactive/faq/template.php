@@ -62,25 +62,4 @@ if (empty($items)) : ?>
 
     </dl>
 
-    <?php if (!is_admin()) :
-        $schema_entities = array();
-        foreach ($items as $item) {
-            $schema_entities[] = array(
-                '@type'          => 'Question',
-                'name'           => $item['question'] ?? '',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => wp_strip_all_tags($item['answer'] ?? ''),
-                ),
-            );
-        }
-        $schema = array(
-            '@context'   => 'https://schema.org',
-            '@type'      => 'FAQPage',
-            'mainEntity' => $schema_entities,
-        );
-    ?>
-    <script type="application/ld+json"><?php echo wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
-    <?php endif; ?>
-
 </div>

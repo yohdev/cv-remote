@@ -1,0 +1,42 @@
+[
+    {
+        "key": "group_tc_8b3f2a91c6d",
+        "title": "Testimonials Carousel",
+        "fields": [
+            {
+                "key": "field_tc_testimonials_rel",
+                "label": "Testimonials",
+                "name": "testimonials",
+                "type": "relationship",
+                "instructions": "Select one or more testimonials to display in the carousel.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "post_type": ["testimonial"],
+                "taxonomy": [],
+                "filters": ["search"],
+                "elements": ["featured_image"],
+                "min": 1,
+                "max": 0,
+                "return_format": "object"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/testimonials-carousel"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Fields for the Testimonials Carousel block."
+    }
+]
