@@ -713,31 +713,6 @@ footer .gform_confirmation_message_3{
   gap: 10px;
 }
 
-.single-post-breadcrumb .taxonomy-category.wp-block-post-terms a{
-  font-weight: normal !important;
-  font-size: 20px !important;
-  color: #000;
-  margin: 0;
-  padding: 0;
-  line-height: 1em;
-}
-
-.single-post-breadcrumb a{
-  text-decoration: none;
-  font-size: 20px !important;
-  margin: 0;
-  padding: 0;
-  line-height: 1em;
-  color: #000 !important;
-}
-
-.single-post-breadcrumb h3{
-  font-family: var(--wp--preset--font-family--manrope);
-  font-size: 20px !important;
-  margin: 0;
-  padding: 0;
-  line-height: 1em;
-}
 
 .sidebar{
   margin: 0;
