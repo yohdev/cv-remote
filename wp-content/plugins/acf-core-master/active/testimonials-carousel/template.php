@@ -46,7 +46,7 @@ $total = count($testimonials);
                     <span class="testimonials-carousel__quote-icon" aria-hidden="true">&#8220;</span>
 
                     <?php if ($content) : ?>
-                        <div class="testimonials-carousel__quote"><?php echo wp_kses_post($content); ?><span class="closing-quote">&#8221;</span></div>
+                        <div class="testimonials-carousel__quote"><?php echo wp_kses_post($content); ?></div>
                     <?php endif; ?>
 
                     <div class="testimonials-carousel__author">
