@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Custom Plugin Security">
+    <description>Security-focused ruleset for WordPress custom plugins</description>
+
+    <!-- Scan only custom code -->
+    <file>../../wp-content/plugins/custom-functions</file>
+    <file>../../wp-content/plugins/custom-scripts</file>
+    <file>../../wp-content/plugins/custom-styles</file>
+    <file>../../wp-content/plugins/design-variables</file>
+    <file>../../wp-content/plugins/custom-front-admin-bar-master</file>
+    <file>../../wp-content/plugins/acf-core-master</file>
+    <file>../../wp-content/themes/ultra-empty-fse</file>
+
+    <!-- Exclude patterns -->
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*.min.js</exclude-pattern>
+    <exclude-pattern>*.min.css</exclude-pattern>
+
+    <!-- Use WordPress-Extra standard (includes security checks) -->
+    <rule ref="WordPress-Extra">
+        <!-- Allow some flexibility for custom development -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+    </rule>
+
+    <!-- PHP Compatibility -->
+    <config name="minimum_supported_wp_version" value="6.3"/>
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Security-specific rules -->
+    <rule ref="WordPress.Security"/>
+    <rule ref="WordPress.DB.PreparedSQL"/>
+    <rule ref="WordPress.Security.EscapeOutput"/>
+    <rule ref="WordPress.Security.NonceVerification"/>
+    <rule ref="WordPress.Security.ValidatedSanitizedInput"/>
+</ruleset>

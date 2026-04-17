@@ -1,0 +1,98 @@
+# WP Engine Pull Ignore
+# Files and directories listed here will NOT be pulled from WP Engine to local
+# This preserves your local development environment
+
+# ===========================================
+# Preserve Local Development Environment
+# ===========================================
+
+# Local WordPress configuration
+wp-config.php
+wp-config-local.php
+
+# Keep local test suite
+tests/
+.github/
+
+# Keep local documentation
+*.md
+docs/
+
+# ===========================================
+# Media Files (usually large, pull selectively)
+# ===========================================
+
+# Uploads (pull manually if needed)
+wp-content/uploads/**/*.jpg
+wp-content/uploads/**/*.jpeg
+wp-content/uploads/**/*.png
+wp-content/uploads/**/*.gif
+wp-content/uploads/**/*.pdf
+wp-content/uploads/**/*.mp4
+wp-content/uploads/**/*.mov
+
+# ===========================================
+# Cache & Temporary Files
+# ===========================================
+
+# WP Engine cache
+wp-content/cache/
+wp-content/mu-plugins/wpengine-common/
+wp-content/mysql.sql
+
+# Object cache
+wp-content/object-cache.php
+
+# Advanced cache
+wp-content/advanced-cache.php
+
+# ===========================================
+# Server-Specific Files
+# ===========================================
+
+# WP Engine specific
+.htaccess
+php.ini
+.user.ini
+
+# Error logs from production
+error_log
+debug.log
+
+# ===========================================
+# Backup Files
+# ===========================================
+
+*.sql
+*.tar
+*.tar.gz
+*.zip
+*.sql.gz
+
+# ===========================================
+# Keep Local Git Repository
+# ===========================================
+
+.git/
+.gitignore
+.gitattributes
+
+# ===========================================
+# Keep Local Development Files
+# ===========================================
+
+# Node modules (if any)
+node_modules/
+package-lock.json
+
+# Composer
+vendor/
+composer.lock
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
