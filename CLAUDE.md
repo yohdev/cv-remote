@@ -180,3 +180,31 @@ wp-content/
     └── ultra-empty-fse/
         └── theme.json            # Layout + base palette + typography (NOT the live palette)
 ```
+
+## WP Engine Deployment Strategy
+
+The repository uses `.wpe-push-ignore` and `.wpe-pull-ignore` files to control what syncs between local and WP Engine:
+
+### What DOESN'T Push to Production
+- **Test suite** (`tests/`) — Security scans, performance audits
+- **CI/CD** (`.github/`) — GitHub Actions workflows
+- **Documentation** (`*.md`, `docs/`) — Development docs
+- **Version control** (`.git/`, `.gitignore`) — Git repository
+- **Dependencies** (`node_modules/`, `vendor/`) — Build tools
+- **IDE files** (`.vscode/`, `.idea/`) — Editor settings
+- **OS files** (`.DS_Store`, `Thumbs.db`) — System files
+
+### What DOESN'T Pull from Production
+- **Local config** (`wp-config.php`) — Preserves local database settings
+- **Media files** (`uploads/**/*.jpg`) — Pull selectively to save bandwidth
+- **Cache files** (`wp-content/cache/`) — Server-specific, not needed locally
+- **WPE system files** (`mu-plugins/wpengine-common/`) — WP Engine infrastructure
+
+### Deployment Commands
+```bash
+# Push to WP Engine (respects .wpe-push-ignore)
+git push production main
+
+# Pull from WP Engine (respects .wpe-pull-ignore)  
+git pull production main
+```
