@@ -13,6 +13,9 @@
 	padding: 28px;
 }
 
+.single-post-related-insights .featured-insights__card {
+	background-color: #fff;
+}
 .featured-insights__card-body {
 	flex: 1;
 }
@@ -65,6 +68,10 @@
 	font-weight: 500;
 	color: #000;
 	font-weight: 700;
+}
+
+.single-post-related-insights .featured-insights__tag {
+	background-color: var(--wp--preset--color--color-surface-primary);
 }
 
 .featured-insights__readmore {
