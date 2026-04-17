@@ -1,4 +1,4 @@
-name: WordPress Security & Accessibility Scan
+name: WordPress Security & Performance Scan
 
 on:
   push:
@@ -127,39 +127,6 @@ jobs:
             exit 0
           fi
           exit 0
-
-  accessibe:
-    name: accessiBe Accessibility Scan
-    runs-on: ubuntu-latest
-    if: always()
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install pyyaml
-
-      - name: Run accessiBe accessibility scan
-        env:
-          ACCESSIBE_API_TOKEN: ${{ secrets.ACCESSIBE_API_TOKEN }}
-          ACCESSIBE_CONFIG: lighthouse-pages.yml
-          ACCESSIBE_OUTPUT: accessibe-results.json
-        run: |
-          python .github/scripts/accessibe-scan.py
-
-      - name: Upload results artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: accessibe-results
-          path: accessibe-results.json
-          retention-days: 90
 
   lighthouse:
     name: Lighthouse Performance Audit
