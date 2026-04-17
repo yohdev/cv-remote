@@ -311,15 +311,69 @@
   
   .left-radius{
     border-radius: 16px 0 0 16px;
+    transition: all 0.5s;
   }
   
   
-  .right-radius{
-    border-radius: 0 16px 16px 0;
-  }
+ .right-radius{
+   border-radius: 0 16px 16px 0;
+ }
+ 
+ .right-img-radius{
+   border-radius: 16px;
+     transition: all 0.5s;
+   }
+ 
   
   .all-radius{
     border-radius: 16px;
+  }
+  
+  .special-radius{
+    border-radius: 16px 16px 16px 16px;
+    transition: all 0.5s;
+  }
+  
+  .right-rounded-bottom{
+    border-radius: 0 16px 16px 0;
+    transition: all 0.5s;
+  }
+  
+  @media (max-width: 781px) {
+    .right-rounded-bottom{
+      border-radius: 16px 16px 0 0;
+      padding-top: 80px;
+      padding-bottom: 0px;
+    }
+    
+    .has-orange-accent-background-color{
+      scale: 0.75;
+    }
+  }
+  
+  @media (max-width: 1391px) {
+      .right-radius{
+        border-radius: 0;
+      }
+      
+      .right-img-radius{
+         border-radius: 16px 0 0 16px;
+      }
+      
+      .special-radius{
+        border-radius: 0 16px 16px 0;
+      }
+      
+      .left-radius{
+        border-radius: 0;
+      }
+  }
+  
+  @media (max-width: 781px) {
+    .overlap-block{
+      margin-left: unset;
+      width: unset;
+  }
   }
   
   .overlap-block{
@@ -875,14 +929,8 @@ footer .gform_confirmation_message_3{
     }
 }
 
-.mobile-nav-logo{
-  display: none;
-}
 /* Mobile: add padding so first/last items breathe */
 @media (max-width: 781px) {
-  
-  
-  
     .blog-nav {
         padding-left: 20px !important;
         padding-right: 20px !important;
