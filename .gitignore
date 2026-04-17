@@ -11,8 +11,8 @@
 /wp-config.php
 /available-site-translations.json
 
-# Keep wp-config.php tracked (has site-specific salts and settings)
-!wp-config.php
+# wp-config.php contains database credentials and secrets - never track it
+wp-config.php
 
 # ===========================================
 # wp-content: Only track custom code
