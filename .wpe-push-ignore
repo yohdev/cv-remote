@@ -1,0 +1,187 @@
+# WP Engine Push Ignore
+# Files and directories listed here will NOT be deployed to WP Engine
+# Syntax: Same as .gitignore
+
+# ===========================================
+# Development & Testing
+# ===========================================
+
+# Test suite (security scans, performance audits)
+tests/
+tests/**
+
+# GitHub Actions & CI/CD
+.github/
+.github/**
+
+# AI Agent Instructions (dev-only documentation)
+CLAUDE.md
+AGENTS.md
+STUDIO.md
+
+# Development documentation
+docs/
+*.md
+README*
+readme*
+CHANGELOG*
+changelog*
+
+# ===========================================
+# Version Control
+# ===========================================
+
+# Git repository
+.git/
+.git/**
+.gitignore
+.gitattributes
+
+# WP Engine deployment files (meta)
+.wpe-pull-ignore
+.wpe-push-ignore
+
+# ===========================================
+# Build Tools & Dependencies
+# ===========================================
+
+# Node.js
+node_modules/
+package.json
+package-lock.json
+yarn.lock
+.nvmrc
+
+# Composer
+vendor/
+composer.json
+composer.lock
+
+# Build artifacts
+dist/
+build/
+*.map
+*.min.js.map
+*.min.css.map
+
+# ===========================================
+# IDE & Editor Files
+# ===========================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PhpStorm / JetBrains
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ===========================================
+# OS Files
+# ===========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+.Trash-*
+
+# ===========================================
+# Temporary & Cache Files
+# ===========================================
+
+# PHP
+*.log
+error_log
+debug.log
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+*.temp
+
+# WordPress
+wp-config-local.php
+wp-config-sample.php
+
+# ===========================================
+# Security & Sensitive Files
+# ===========================================
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Configuration with secrets
+config.local.php
+settings.local.php
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.cer
+
+# ===========================================
+# Development-Only Plugins (if any)
+# ===========================================
+
+# Query Monitor, Debug Bar, etc.
+# wp-content/plugins/query-monitor/
+# wp-content/plugins/debug-bar/
+
+# ===========================================
+# Large/Binary Files (optional)
+# ===========================================
+
+# Video files (if storing elsewhere)
+# *.mp4
+# *.mov
+# *.avi
+
+# Large PSDs or design files
+# *.psd
+# *.sketch
+# *.fig
+
+# ===========================================
+# Local Development Files
+# ===========================================
+
+# Local by Flywheel
+local-xdebuginfo.php
+local-site.json
+
+# WordPress Studio
+studio-config.json
+
+# MAMP/XAMPP
+.htaccess.local
+
+# Docker
+docker-compose.yml
+docker-compose.*.yml
+Dockerfile
+.dockerignore
