@@ -1,9 +1,15 @@
 .breadcrumb {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #111;
+    font-size: 20px;
+    line-height: 1;
+    color: #000;
     margin: 0 0 1rem;
 }
+
+  @media (max-width: 781px) {
+      .breadcrumb {
+          font-size: 14px;
+      }
+  }
 
 .breadcrumb__list {
     list-style: none;
