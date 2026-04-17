@@ -2,6 +2,9 @@
    Large Testimonial Slider
    Peek infinite carousel — 2 full + peek (desktop), 1 + peek (mobile)
    ───────────────────────────────────────────────────────────── */
+.slider-box{
+   padding-left: calc(27vw - 200px);
+}
 
 .large-testimonial-slider {
     width: 100%;
