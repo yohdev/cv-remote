@@ -8,6 +8,7 @@
 /license.txt
 /readme.html
 /xmlrpc.php
+/wp-config.php
 /available-site-translations.json
 
 # wp-config.php contains database credentials and secrets - never track it
@@ -62,8 +63,8 @@ Thumbs.db
 wp-config-local.php
 
 # WP Engine deployment files
-.wpe-pull-ignore
-.wpe-push-ignore
+# .wpe-pull-ignore
+# .wpe-push-ignore
 
 # WP Local / Local by Flywheel
 local-xdebuginfo.php

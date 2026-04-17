@@ -1,0 +1,47 @@
+# Master Test Configuration
+# This file can be customized per client site
+
+site:
+  name: "CVRemote"
+  url: "https://cvremote.com"
+  environment: "production"
+
+# Custom plugin paths to test
+custom_plugins:
+  - custom-functions
+  - custom-scripts
+  - custom-styles
+  - design-variables
+  - custom-front-admin-bar-master
+  - acf-core-master
+
+# Custom theme paths
+custom_themes:
+  - ultra-empty-fse
+
+# Test settings
+tests:
+  phpcs:
+    enabled: true
+    standard: "WordPress-Extra"
+    min_php_version: "8.0"
+    min_wp_version: "6.3"
+  
+  lighthouse:
+    enabled: true
+    performance_threshold: 80
+    accessibility_threshold: 85
+    best_practices_threshold: 80
+    seo_threshold: 90
+  
+  version_check:
+    enabled: true
+    check_vulnerabilities: true
+    wordfence_api: true
+
+# GitHub Actions settings
+ci:
+  run_on_push: true
+  run_on_pr: true
+  fail_on_warnings: false
+  annotate_pr: true

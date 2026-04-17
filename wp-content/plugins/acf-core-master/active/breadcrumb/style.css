@@ -1,0 +1,40 @@
+.breadcrumb {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #111;
+    margin: 0 0 1rem;
+}
+
+.breadcrumb__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb__item {
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.breadcrumb__link:hover,
+.breadcrumb__link:focus {
+    text-decoration: underline;
+}
+
+.breadcrumb__separator {
+    color: inherit;
+    user-select: none;
+}
+
+.breadcrumb__item--current {
+    color: inherit;
+}
