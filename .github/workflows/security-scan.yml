@@ -36,36 +36,16 @@ jobs:
       - name: Run WordPress security scan on custom code
         run: |
           phpcs \
-            --standard=WordPress-Extra \
-            --extensions=php \
-            --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
+            --standard=tests/phpcs/phpcs.xml \
             --report=checkstyle \
             --report-file=phpcs-report.xml \
-            --severity=1 \
-            wp-content/plugins/custom-functions/ \
-            wp-content/plugins/custom-scripts/ \
-            wp-content/plugins/custom-styles/ \
-            wp-content/plugins/design-variables/ \
-            wp-content/plugins/custom-front-admin-bar-master/ \
-            wp-content/plugins/acf-core-master/ \
-            wp-content/themes/ultra-empty-fse/ \
             || true
 
       - name: Display human-readable results
         run: |
           phpcs \
-            --standard=WordPress-Extra \
-            --extensions=php \
-            --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
+            --standard=tests/phpcs/phpcs.xml \
             --report=summary \
-            --severity=1 \
-            wp-content/plugins/custom-functions/ \
-            wp-content/plugins/custom-scripts/ \
-            wp-content/plugins/custom-styles/ \
-            wp-content/plugins/design-variables/ \
-            wp-content/plugins/custom-front-admin-bar-master/ \
-            wp-content/plugins/acf-core-master/ \
-            wp-content/themes/ultra-empty-fse/ \
             || true
 
       - name: Annotate PR with inline comments
@@ -78,19 +58,10 @@ jobs:
       - name: Report critical security issues
         run: |
           phpcs \
-            --standard=WordPress-Extra \
-            --extensions=php \
-            --ignore=*/vendor/*,*/node_modules/*,*/inactive/* \
+            --standard=tests/phpcs/phpcs.xml \
             --error-severity=5 \
             --warning-severity=0 \
             --report=summary \
-            wp-content/plugins/custom-functions/ \
-            wp-content/plugins/custom-scripts/ \
-            wp-content/plugins/custom-styles/ \
-            wp-content/plugins/design-variables/ \
-            wp-content/plugins/custom-front-admin-bar-master/ \
-            wp-content/plugins/acf-core-master/ \
-            wp-content/themes/ultra-empty-fse/ \
             || echo "::warning::Critical security issues found — review the scan results above"
 
   version-check:
@@ -112,10 +83,10 @@ jobs:
       - name: Run version & vulnerability check
         env:
           WORDFENCE_API_TOKEN: ${{ secrets.WORDFENCE_API_TOKEN }}
-          MANIFEST_PATH: plugins.yml
+          MANIFEST_PATH: tests/config/plugins.yml
         run: |
           set +e
-          python .github/scripts/check-versions.py
+          python tests/scripts/check-versions.py
           exit_code=$?
           set -e
 
@@ -148,11 +119,11 @@ jobs:
       - name: Run Lighthouse audit
         env:
           PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
-          LIGHTHOUSE_CONFIG: lighthouse-pages.yml
+          LIGHTHOUSE_CONFIG: tests/config/lighthouse-pages.yml
           LIGHTHOUSE_OUTPUT: lighthouse-results.json
         run: |
           set +e
-          python .github/scripts/lighthouse-audit.py
+          python tests/scripts/lighthouse-audit.py
           exit_code=$?
           set -e
 
