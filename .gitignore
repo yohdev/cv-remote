@@ -8,6 +8,7 @@
 /license.txt
 /readme.html
 /xmlrpc.php
+/wp-config.php
 /available-site-translations.json
 
 # Keep wp-config.php tracked (has site-specific salts and settings)
