@@ -42,16 +42,6 @@
     font-family: Georgia, serif;
 }
 
-.closing-quote{
-    display: block;
-    font-size: 3rem;
-    line-height: 0;
-    padding-top: 40px;
-    color: #c0533a;
-    margin-bottom: 0.75rem;
-    font-family: Georgia, serif;
-}
-
 .testimonials-carousel__quote {
     font-size: 1rem;
     line-height: 1.65;
