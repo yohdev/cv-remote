@@ -1,0 +1,37 @@
+# Lighthouse Audit Configuration
+# --------------------------------
+# Pages to audit with Google PageSpeed Insights API.
+# Add or remove paths as needed — the CI workflow reads this file.
+#
+# base_url: The site to scan (change to staging URL for testing)
+# pages: List of paths to audit (relative to base_url)
+# thresholds: Minimum scores (0-100) — the job warns below these
+
+base_url: "https://www.cvremotesolutions.com"
+
+pages:
+  - path: "/"
+    name: "Homepage"
+
+  - path: "/about/"
+    name: "About"
+
+  - path: "/services/"
+    name: "Services"
+
+  - path: "/contact/"
+    name: "Contact"
+
+  - path: "/insights/"
+    name: "Insights (Blog)"
+
+  - path: "/careers/"
+    name: "Careers"
+
+# Score thresholds — scores below these trigger warnings
+# Set to 0 to disable a category
+thresholds:
+  performance: 50
+  accessibility: 80
+  best_practices: 80
+  seo: 80

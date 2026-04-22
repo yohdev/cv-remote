@@ -176,13 +176,7 @@ add_action( 'init', function() {
 		'rewrite'           => [ 'slug' => 'role' ],
 	] );
 
-	// Auto-create the three default roles if they don't exist.
-	$defaults = [ 'Physician', 'Administrator', 'Device Clinician' ];
-	foreach ( $defaults as $role_name ) {
-		if ( ! term_exists( $role_name, 'role' ) ) {
-			wp_insert_term( $role_name, 'role' );
-		}
-	}
+
 } );
 
 // ─────────────────────────────────────────────────────────────

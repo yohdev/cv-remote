@@ -16,7 +16,15 @@
 
         var total      = realSlides.length;
         var isMoving   = false;
+        var moveTimer  = null;
         var cloneCount = 1;
+
+        function clearMoveTimer() {
+            if (moveTimer) {
+                clearTimeout(moveTimer);
+                moveTimer = null;
+            }
+        }
         if (cloneCount > total) cloneCount = total;
 
         // ── Append clone of first slide to the end ──────────────
@@ -68,6 +76,15 @@
             setPosition(current);
             updateCounter();
             syncHeight();
+
+            // Safety net: if transitionend never fires (e.g. iOS Safari
+            // cancels the transition when the address bar toggles),
+            // release the lock so the carousel can still advance.
+            clearMoveTimer();
+            moveTimer = setTimeout(function () {
+                isMoving = false;
+                moveTimer = null;
+            }, 500);
         }
 
         function next() { goTo(current + 1); }
@@ -76,6 +93,8 @@
         // ── After transition: snap if sitting on a clone ────────
         track.addEventListener('transitionend', function (e) {
             if (e.target !== track || e.propertyName !== 'transform') return;
+
+            clearMoveTimer();
 
             var needsSnap = false;
 
@@ -102,6 +121,12 @@
             } else {
                 isMoving = false;
             }
+        });
+
+        track.addEventListener('transitioncancel', function (e) {
+            if (e.target !== track || e.propertyName !== 'transform') return;
+            clearMoveTimer();
+            isMoving = false;
         });
 
         if (totalEl) totalEl.textContent = total;
@@ -135,6 +160,10 @@
                 trackWrapper.style.transition = 'none';
                 setPosition(current);
                 syncHeight();
+                // Resize forcibly kills any in-flight transition; make sure
+                // isMoving doesn't stay stuck at true.
+                clearMoveTimer();
+                isMoving = false;
                 requestAnimationFrame(function () {
                     requestAnimationFrame(function () {
                         track.style.transition = 'transform 0.4s ease';

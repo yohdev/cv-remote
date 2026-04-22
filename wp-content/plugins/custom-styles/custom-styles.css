@@ -186,7 +186,7 @@
   .wp-block-group .bubble-two{
     display: block;
     position: absolute;
-    top:45%;
+    top:35%;
     right:20px;
     z-index: 1;
     background-color: #fff;
@@ -311,69 +311,15 @@
   
   .left-radius{
     border-radius: 16px 0 0 16px;
-    transition: all 0.5s;
   }
   
   
- .right-radius{
-   border-radius: 0 16px 16px 0;
- }
- 
- .right-img-radius{
-   border-radius: 16px;
-     transition: all 0.5s;
-   }
- 
+  .right-radius{
+    border-radius: 0 16px 16px 0;
+  }
   
   .all-radius{
     border-radius: 16px;
-  }
-  
-  .special-radius{
-    border-radius: 16px 16px 16px 16px;
-    transition: all 0.5s;
-  }
-  
-  .right-rounded-bottom{
-    border-radius: 0 16px 16px 0;
-    transition: all 0.5s;
-  }
-  
-  @media (max-width: 781px) {
-    .right-rounded-bottom{
-      border-radius: 16px 16px 0 0;
-      padding-top: 80px;
-      padding-bottom: 0px;
-    }
-    
-    .has-orange-accent-background-color{
-      scale: 0.75;
-    }
-  }
-  
-  @media (max-width: 1391px) {
-      .right-radius{
-        border-radius: 0;
-      }
-      
-      .right-img-radius{
-         border-radius: 16px 0 0 16px;
-      }
-      
-      .special-radius{
-        border-radius: 0 16px 16px 0;
-      }
-      
-      .left-radius{
-        border-radius: 0;
-      }
-  }
-  
-  @media (max-width: 781px) {
-    .overlap-block{
-      margin-left: unset;
-      width: unset;
-  }
   }
   
   .overlap-block{
@@ -385,13 +331,21 @@
   }
   
   @media (max-width: 781px) {
-    .overlap-block{
-      margin-left: unset;
-      width: unset;
-  }
+      .overlap-block{
+        margin-left: unset;
+        width: unset;
+    }
   }
  
-
+ .sm-icon{
+   width: 28px !important;
+   height: 28px !important;
+ }
+ 
+.sm-icon img{
+  width: 28px !important;
+  height: 28px !important;
+}
  
  .top-logo svg{
   width: 85px;
@@ -763,11 +717,12 @@ footer .gform_confirmation_message_3{
 }
 
 .taxonomy-role.wp-block-post-terms a{
-  padding: 10px;
+  padding: 5px 10px;
   font-weight: 700;
   color: #00508D;
   background-color: #e2edf6 !important;
-  text-decoration: none
+  text-decoration: none;
+  border-radius: 6px;
 }
 
 .wp-block-post-terms__separator{
@@ -929,8 +884,14 @@ footer .gform_confirmation_message_3{
     }
 }
 
+.mobile-nav-logo{
+  display: none;
+}
 /* Mobile: add padding so first/last items breathe */
 @media (max-width: 781px) {
+  
+  
+  
     .blog-nav {
         padding-left: 20px !important;
         padding-right: 20px !important;

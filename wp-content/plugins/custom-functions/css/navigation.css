@@ -127,12 +127,6 @@
 	transform: translateY(-1px);
 }
 
-
-
-.mobile-nav-logo {
-	display: none;
-}
-
 /* ═══════════════════════════════════════════════════════════════
    MOBILE NAVIGATION
    Breakpoint: 1070px — matches hamburger visibility below
@@ -142,10 +136,6 @@
 @media (max-width: 1070px) {
 	.wp-block-navigation__responsive-container-open:not(.always-shown) {
 		display: flex !important;
-	}
-	
-	.consult-btn-nav{
-		margin-top: 20px
 	}
 
 	.wp-block-navigation__responsive-container:not(.is-menu-open) {
@@ -415,7 +405,10 @@
 	/* ── Logo inside mobile overlay ──
 	   Injected automatically by navigation.js from the header logo.
 	   Also supports manual placement via "mobile-overlay-logo" CSS class. */
-	
+	.mobile-overlay-logo,
+	.mobile-nav-logo {
+		display: none;
+	}
 
 	.wp-block-navigation__responsive-container.is-menu-open .mobile-overlay-logo,
 	.wp-block-navigation__responsive-container.is-menu-open .mobile-nav-logo {

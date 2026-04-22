@@ -13,6 +13,8 @@
     cursor: pointer;
     line-height: 1;
     transition: opacity 0.2s ease;
+    width: 28px;
+    height: 28px;
 }
 
 .copy-permalink__btn:hover {

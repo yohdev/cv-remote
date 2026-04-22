@@ -113,4 +113,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	initMobileOverlayLogo();
+
+	// ── Close mobile menu whenever a link is clicked ──
+	// Anchor links (e.g. #section) on the current page don't trigger a
+	// navigation, so the overlay would otherwise stay open. Delegated
+	// click simulates pressing the overlay's close button.
+	document.addEventListener('click', function (e) {
+		const link = e.target.closest('a');
+		if (!link) return;
+
+		const overlay = link.closest(
+			'.wp-block-navigation__responsive-container.is-menu-open'
+		);
+		if (!overlay) return;
+
+		const closeBtn = overlay.querySelector(
+			'.wp-block-navigation__responsive-container-close'
+		);
+		if (closeBtn) closeBtn.click();
+	});
 });

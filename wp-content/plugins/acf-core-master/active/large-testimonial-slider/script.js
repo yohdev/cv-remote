@@ -15,6 +15,14 @@
 
         var total    = realCards.length;
         var isMoving = false;
+        var moveTimer = null;
+
+        function clearMoveTimer() {
+            if (moveTimer) {
+                clearTimeout(moveTimer);
+                moveTimer = null;
+            }
+        }
 
         // We need enough clones to fill the viewport at the wrap boundary.
         // Desktop shows 2 full + peek = 3 cards visible at once.
@@ -78,6 +86,15 @@
             track.style.transition = 'transform 0.4s ease';
             setPosition(current);
             updateCounter();
+
+            // Safety net: if transitionend never fires (e.g. iOS Safari
+            // cancels the transition when the address bar toggles),
+            // release the lock so the carousel can still advance.
+            clearMoveTimer();
+            moveTimer = setTimeout(function () {
+                isMoving = false;
+                moveTimer = null;
+            }, 500);
         }
 
         function next() { goTo(current + 1); }
@@ -86,6 +103,8 @@
         // ── After transition: snap if sitting on a clone ────────
         track.addEventListener('transitionend', function (e) {
             if (e.target !== track || e.propertyName !== 'transform') return;
+
+            clearMoveTimer();
 
             var needsSnap = false;
 
@@ -113,6 +132,12 @@
             } else {
                 isMoving = false;
             }
+        });
+
+        track.addEventListener('transitioncancel', function (e) {
+            if (e.target !== track || e.propertyName !== 'transform') return;
+            clearMoveTimer();
+            isMoving = false;
         });
 
         // ── Counter total ───────────────────────────────────────
@@ -150,6 +175,10 @@
             resizeTimer = setTimeout(function () {
                 track.style.transition = 'none';
                 setPosition(current);
+                // Resize forcibly kills any in-flight transition; make sure
+                // isMoving doesn't stay stuck at true.
+                clearMoveTimer();
+                isMoving = false;
                 requestAnimationFrame(function () {
                     requestAnimationFrame(function () {
                         track.style.transition = 'transform 0.4s ease';

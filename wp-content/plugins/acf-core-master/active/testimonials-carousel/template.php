@@ -26,6 +26,18 @@ $total = count($testimonials);
 
 <div class="<?php echo esc_attr($className); ?>" id="<?php echo esc_attr($id); ?>" data-total="<?php echo esc_attr($total); ?>">
 
+    <div class="testimonials-carousel__controls">
+        <div class="testimonials-carousel__buttons">
+            <button class="testimonials-carousel__btn testimonials-carousel__btn--prev"
+                    aria-label="Previous testimonial">&#8592;</button>
+            <button class="testimonials-carousel__btn testimonials-carousel__btn--next"
+                    aria-label="Next testimonial">&#8594;</button>
+        </div>
+        <span class="testimonials-carousel__counter">
+            <span class="testimonials-carousel__current">1</span>/<span class="testimonials-carousel__total"><?php echo esc_html($total); ?></span>
+        </span>
+    </div>
+
     <div class="testimonials-carousel__track-wrapper">
         <div class="testimonials-carousel__track">
 
@@ -72,18 +84,6 @@ $total = count($testimonials);
             <?php endforeach; ?>
 
         </div>
-    </div>
-
-    <div class="testimonials-carousel__controls">
-        <div class="testimonials-carousel__buttons">
-            <button class="testimonials-carousel__btn testimonials-carousel__btn--prev"
-                    aria-label="Previous testimonial">&#8592;</button>
-            <button class="testimonials-carousel__btn testimonials-carousel__btn--next"
-                    aria-label="Next testimonial">&#8594;</button>
-        </div>
-        <span class="testimonials-carousel__counter">
-            <span class="testimonials-carousel__current">1</span>/<span class="testimonials-carousel__total"><?php echo esc_html($total); ?></span>
-        </span>
     </div>
 
 </div>
