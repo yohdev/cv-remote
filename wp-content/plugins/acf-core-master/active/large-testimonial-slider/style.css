@@ -126,7 +126,8 @@
 .large-testimonial-slider__controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 40px;
     margin-bottom: 1.5rem;
     padding: 0 0.25rem;
 }
