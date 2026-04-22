@@ -34,8 +34,6 @@ if (empty($posts)) return;
 						<a href="<?php echo esc_url($permalink); ?>"><?php echo esc_html($title); ?></a>
 					</h3>
 					<p class="featured-insights__meta">
-						<?php echo esc_html($author); ?>
-						<span class="featured-insights__meta-sep">|</span>
 						<?php echo esc_html($date); ?>
 					</p>
 					<?php if ($excerpt) : ?>

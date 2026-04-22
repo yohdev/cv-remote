@@ -29,6 +29,18 @@ $total = count($testimonials);
 
 <div class="<?php echo esc_attr($className); ?>" id="<?php echo esc_attr($id); ?>" data-total="<?php echo esc_attr($total); ?>">
 
+    <div class="large-testimonial-slider__controls">
+        <div class="large-testimonial-slider__buttons">
+            <button class="large-testimonial-slider__btn large-testimonial-slider__btn--prev"
+                    aria-label="Previous testimonial">&#8592;</button>
+            <button class="large-testimonial-slider__btn large-testimonial-slider__btn--next"
+                    aria-label="Next testimonial">&#8594;</button>
+        </div>
+        <span class="large-testimonial-slider__counter">
+            <span class="large-testimonial-slider__current">1</span>/<span class="large-testimonial-slider__total"><?php echo esc_html($total); ?></span>
+        </span>
+    </div>
+
     <div class="large-testimonial-slider__track">
 
         <?php foreach ($testimonials as $index => $post_obj) :
@@ -78,18 +90,6 @@ $total = count($testimonials);
         </div>
         <?php endforeach; ?>
 
-    </div>
-
-    <div class="large-testimonial-slider__controls">
-        <div class="large-testimonial-slider__buttons">
-            <button class="large-testimonial-slider__btn large-testimonial-slider__btn--prev"
-                    aria-label="Previous testimonial">&#8592;</button>
-            <button class="large-testimonial-slider__btn large-testimonial-slider__btn--next"
-                    aria-label="Next testimonial">&#8594;</button>
-        </div>
-        <span class="large-testimonial-slider__counter">
-            <span class="large-testimonial-slider__current">1</span>/<span class="large-testimonial-slider__total"><?php echo esc_html($total); ?></span>
-        </span>
     </div>
 
 </div>
